@@ -23,4 +23,12 @@
 20. the main class should be application.Main
 21. go to dependencies > Add mocules (at bottom) > ALL-MODULE-PATH > apply
 22. Now it should work!
-tThere's prob an easier way to do it ¯\_(ツ)_/¯
+There's prob an easier way to do it ¯\_(ツ)_/¯
+
+# Commiting to git
+Make sure you are working with the latest version before commiting.
+1. Window > Show View > Git(might be in other) > Git Staging
+2. See changes in Unstaged changes
+3. Add to staged with green plus
+4. Add commit message
+5. Commit and push
