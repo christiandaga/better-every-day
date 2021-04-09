@@ -7,7 +7,7 @@ import com.mongodb.client.MongoCollection;
 public class Test {
 	
 	public static void main(String[] args) {
-		User user = new User("userB", "passforuserB");
+		User user = new User("userC", "passforuserC", "userC@c.com");
 		
 		Db db = new Db();
 		MongoCollection<Document> collection = db.database.getCollection("users");
