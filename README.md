@@ -45,6 +45,6 @@ Make sure you are working with the latest version before commiting.
 When you're done on your branch and want to merge to master
 1. Go to PUll requests on GitHub
 2. New Pull Request
-3. Choose compare:<your-branch>
+3. Choose compare:(your branch)
 4. Create Pull Request
 We can see changes and resolve any conflicts before merging
