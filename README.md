@@ -25,10 +25,26 @@
 22. Now it should work!
 There's prob an easier way to do it ¯\_(ツ)_/¯
 
-# Commiting to git
+# Git
+## Pulling and Branching
+Its a good idea to branch whenever working on a new thing so there is no conflict
+1. Window > Show View > Git > Git Repositories
+2. right click on better-every-day
+3. Switch To > for branching
+4. or Pull
+
+## Commiting
 Make sure you are working with the latest version before commiting.
 1. Window > Show View > Git(might be in other) > Git Staging
 2. See changes in Unstaged changes
 3. Add to staged with green plus
 4. Add commit message
 5. Commit and push
+
+## Merging
+When you're done on your branch and want to merge to master
+1. Go to PUll requests on GitHub
+2. New Pull Request
+3. Choose compare:<your-branch>
+4. Create Pull Request
+We can see changes and resolve any conflicts before merging
