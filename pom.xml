@@ -27,8 +27,8 @@
   <dependencies>
   	<dependency>
         <groupId>org.mongodb</groupId>
-        <artifactId>mongo-java-driver</artifactId>
-        <version>2.12.3</version>
+        <artifactId>mongodb-driver-legacy</artifactId>
+        <version>4.2.3</version>
     </dependency>
   </dependencies>
 </project>
