@@ -16,6 +16,7 @@ public class User {
 		this.email = email;
 	}
 	
+	// Constructor sets username, password, and email from Document
 	User(Document user) {
 		username = user.getString("username");
 		password = user.getString("password");
@@ -58,6 +59,7 @@ public class User {
 		userLevel = newUserLevel;
 	}
 	
+	// Returns Document containing user information
 	public Document getDocument() {
 		return new Document("username", username)
 				.append("password", password)
