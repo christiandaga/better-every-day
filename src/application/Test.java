@@ -13,5 +13,4 @@ public class Test {
 		MongoCollection<Document> collection = db.database.getCollection("users");
 		collection.insertOne(user.getDocument());
 	}
-	
 }
