@@ -21,7 +21,7 @@ public class User {
 		username = user.getString("username");
 		password = user.getString("password");
 		email = user.getString("email");
-		userLevel = (user.getInteger("userLevel") == null) ? 0 : user.getInteger("userLevel");
+		userLevel = user.getInteger("userLevel", 0);
 	}
 	
 	// Returns the user's username.

@@ -63,4 +63,22 @@ public class Db {
 		
 	}
 	
+	// Finds and replaces an item
+	public void replaceItem(String collectionName, Bson filter, Document item) {
+		try {
+			database.getCollection(collectionName).findOneAndReplace(filter, item);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// Finds and deletes an item
+	public void deleteItem(String collectionName, Bson filter) {
+		try {
+			database.getCollection(collectionName).findOneAndDelete(filter);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
