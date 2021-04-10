@@ -1,5 +1,7 @@
 package application;
 
+import org.bson.Document;
+
 import com.mongodb.client.model.Filters;
 
 import javafx.application.Application;
@@ -52,9 +54,9 @@ public class Main extends Application {
 					vbox2.setSpacing(20); // Sets spacing for the Vertical Box.
 					vbox2.setPadding(new Insets(20, 20, 20, 20)); // Sets padding for the Vertical Box.
 					
-					String username = db.findOne("users", Filters.eq("username", textField.getText())).getString("username"); // Gets user from db
+					Document user = db.findOne("users", Filters.eq("username", textField.getText())); // Gets user from db
 					
-					Label label3 = new Label("Welcome, " + username + "!"); // Creates a label to welcome the user to the Home page.
+					Label label3 = new Label("Welcome, " + (user == null ? "<username>" : user.getString("username")) + "!"); // Creates a label to welcome the user to the Home page.
 					label3.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20)); // Sets font properties of the 'welcome' label.
 					
 					vbox2.getChildren().add(label3); // Adds the 'welcome' label to the scene.

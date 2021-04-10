@@ -25,23 +25,42 @@ public class Db {
 	
 	// Add an item to a collection
 	public void addItemToDB(String collectionName, Document item) {
-		database.getCollection(collectionName).insertOne(item);
+		try {
+			database.getCollection(collectionName).insertOne(item);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// Add multiple items to collection
 	public void addItemsToDB(String collectionName, List<Document> items) {
-		database.getCollection(collectionName).insertMany(items);
+		try {
+			database.getCollection(collectionName).insertMany(items);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// Returns the first item that matches filter
 	public Document findOne(String collectionName, Bson filter) {
-		Iterable<Document> ret = database.getCollection(collectionName).find(filter);
-		return ret.iterator().next();
+		try {
+			Iterable<Document> ret = database.getCollection(collectionName).find(filter);
+			return ret.iterator().next();
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	// Find and return all the items that match filter
 	public Iterable<Document> findMany(String collectionName, Bson filter) {
-		return database.getCollection(collectionName).find(filter);
+		try {
+			return database.getCollection(collectionName).find(filter);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 }
