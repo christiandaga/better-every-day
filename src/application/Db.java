@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bson.Document;
@@ -9,11 +11,16 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
+/**
+ * Connects to MongoDB
+ */
 public class Db {
 	public MongoClient client;	// MongoDB client
 	public MongoDatabase database;	// The MongoDB database better-every-day-db
 	
-	// Connects to db and sets client and database
+	/**
+	 * Connects to db and initializes client and database
+	 */
 	Db() {
 		try {
 			client = new MongoClient(new MongoClientURI("mongodb+srv://christianuser:christianuser@better-every-day-cluste.ttuir.mongodb.net/better-every-day-db?retryWrites=true&w=majority"));
@@ -23,7 +30,11 @@ public class Db {
 		}
 	}
 	
-	// Add an item to a collection
+	/**
+	 * Adds and item to a collection
+	 * @param collectionName the name of the collection
+	 * @param item the item as a Document
+	 */
 	public void addItemToDB(String collectionName, Document item) {
 		try {
 			database.getCollection(collectionName).insertOne(item);
@@ -32,7 +43,11 @@ public class Db {
 		}
 	}
 	
-	// Add multiple items to collection
+	/**
+	 * Adds multiple items to a collection
+	 * @param collectionName the name of the collection
+	 * @param items the items as a list of Documents
+	 */
 	public void addItemsToDB(String collectionName, List<Document> items) {
 		try {
 			database.getCollection(collectionName).insertMany(items);
@@ -41,7 +56,12 @@ public class Db {
 		}
 	}
 	
-	// Returns the first item that matches filter
+	/**
+	 * Returns the first item that matches filter
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 * @return the first item that matches filter
+	 */
 	public Document findOne(String collectionName, Bson filter) {
 		try {
 			Iterable<Document> ret = database.getCollection(collectionName).find(filter);
@@ -52,10 +72,17 @@ public class Db {
 		}
 	}
 	
-	// Find and return all the items that match filter
-	public Iterable<Document> findMany(String collectionName, Bson filter) {
+	/**
+	 * Find and return all the items that match filter
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 * @return a list of Documents
+	 */
+	public List<Document> findMany(String collectionName, Bson filter) {
 		try {
-			return database.getCollection(collectionName).find(filter);
+			List<Document> list = new ArrayList<Document>();
+			database.getCollection(collectionName).find(filter).forEach(list::add);
+			return list;
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
@@ -63,7 +90,12 @@ public class Db {
 		
 	}
 	
-	// Finds and replaces an item
+	/**
+	 * Finds and replaces an item
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 * @param item the replacement Document
+	 */
 	public void replaceItem(String collectionName, Bson filter, Document item) {
 		try {
 			database.getCollection(collectionName).findOneAndReplace(filter, item);
@@ -72,7 +104,11 @@ public class Db {
 		}
 	}
 	
-	// Finds and deletes an item
+	/**
+	 * Finds and deletes an item
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 */
 	public void deleteItem(String collectionName, Bson filter) {
 		try {
 			database.getCollection(collectionName).findOneAndDelete(filter);
