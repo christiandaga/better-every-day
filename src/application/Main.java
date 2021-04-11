@@ -13,44 +13,53 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	private static final Color cGreen = Color.web("#55C461"); // customized green color
+	private static final Color lGray = Color.web("#EEEEEE"); // customized light gray color
+	private static final Color dGray = Color.web("#707070"); // customized dark gray color
+	
 	@Override
 	public void start(Stage primaryStage) {
 		Db db = new Db();
 		
 		try {
-			
 			VBox vbox = new VBox(); // Creates a Vertical Box.
 			vbox.setStyle("-fx-background-color: orange;"); // Sets background color of the Vertical Box to orange.
 			vbox.setSpacing(20); // Sets spacing for the Vertical Box.
 			vbox.setPadding(new Insets(20, 20, 20, 20)); // Sets padding for the Vertical Box.
 			
 			Label label1 = new Label("Username:"); // Creates a label for the username.
-			label1.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20)); // Sets font properties of the username label.
+			label1.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the username label.
 			
 			TextField textField = new TextField(); // Creates a text field to enter the username.
 			
 			Label label2 = new Label("Password:"); // Creates a label for the password.
-			label2.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20)); // Sets font properties of the password label.
+			label2.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the password label.
 			
 			PasswordField passwordField = new PasswordField(); // Creates a password field - when the user is typing the password, the password
 															   // will be hidden.
 			
-			Button button = new Button("LOGIN"); // Creates a login button.
-			button.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20)); // Sets font properties of the login button.
+			Button loginBtn = new Button("LOGIN"); // Creates a login button.
+			loginBtn.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the login button.
+			loginBtn.setBackground(new Background(new BackgroundFill(cGreen, CornerRadii.EMPTY, Insets.EMPTY)));
 			
 			// When the login button is clicked, the Home page will come up.
-			button.setOnAction(new EventHandler<ActionEvent> () {
+			loginBtn.setOnAction(new EventHandler<ActionEvent> () {
 				
 				@Override
 				public void handle(ActionEvent event) {
-					Document doc = new Document("username", textField.getText()).append("password", passwordField.getText()); // Initializes MongoDB document containing user info.
-					db.addItemToDB("users", doc); // Adds user document to database.
+					User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
+					//Document doc = new Document("username", textField.getText()).append("password", passwordField.getText()); // Initializes MongoDB document containing user info.
+					db.addItemToDB("users", newUser.getDocument()); // Adds user document to database.
 					
 					VBox vbox2 = new VBox(); // Creates a Vertical Box.
 					vbox2.setStyle("-fx-background-color: green;"); // Sets background color of the Vertical Box to green.
@@ -60,7 +69,7 @@ public class Main extends Application {
 					Document user = db.findOne("users", Filters.eq("username", textField.getText())); // Gets user from db
 					
 					Label label3 = new Label("Welcome, " + (user == null ? "<username>" : user.getString("username")) + "!"); // Creates a label to welcome the user to the Home page.
-					label3.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20)); // Sets font properties of the 'welcome' label.
+					label3.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the 'welcome' label.
 					
 					vbox2.getChildren().add(label3); // Adds the 'welcome' label to the scene.
 					
@@ -71,7 +80,7 @@ public class Main extends Application {
 				}
 			});
 			
-			vbox.getChildren().addAll(label1, textField, label2, passwordField, button); // Adds all the nodes created to the scene.
+			vbox.getChildren().addAll(label1, textField, label2, passwordField, loginBtn); // Adds all the nodes created to the scene.
 			
 			
 			/**
