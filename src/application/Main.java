@@ -32,8 +32,6 @@ public class Main extends Application {
 		Db db = new Db();
 		
 		try {
-			
-			
 			VBox vbox = new VBox(); // Creates a Vertical Box.
 			vbox.setStyle("-fx-background-color: orange;"); // Sets background color of the Vertical Box to orange.
 			vbox.setSpacing(20); // Sets spacing for the Vertical Box.
