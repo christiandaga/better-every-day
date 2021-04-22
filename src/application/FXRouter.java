@@ -32,6 +32,7 @@ import javafx.animation.FadeTransition;
  * @version 1.0.0
  */
 public final class FXRouter {
+	private static final Object CONTROLLER = ":-)";
     private static final String WINDOW_TITLE = "";
     private static final Double WINDOW_WIDTH = 800.0;
     private static final Double WINDOW_HEIGHT = 600.0;
@@ -43,6 +44,8 @@ public final class FXRouter {
     private static Object mainRef;
     // FXRouter Application Stage reference to set scenes
     private static Stage window;
+    
+    private static Object controller;
     
     // Application Stage title
     private static String windowTitle;
@@ -73,6 +76,10 @@ public final class FXRouter {
         // route data passed from goTo()
         private Object data;
 
+        private RouteScene(String scenePath) {
+            this(scenePath, getController(), getWindowTitle(), getWindowWidth(), getWindowHeight());
+        }
+        
         private RouteScene(String scenePath, Object controller) {
             this(scenePath, controller, getWindowTitle(), getWindowWidth(), getWindowHeight());
         }
@@ -99,6 +106,10 @@ public final class FXRouter {
             this.controller = controller;
         }
 
+        private static Object getController() {
+        	return FXRouter.controller != null ? FXRouter.controller : CONTROLLER;
+        }
+        
         private static String getWindowTitle() {
             return FXRouter.windowTitle != null ? FXRouter.windowTitle : WINDOW_TITLE;
         }
@@ -120,14 +131,21 @@ public final class FXRouter {
     public static void bind(Object ref, Stage win) {
         checkInstances(ref, win);
     }
-
-    public static void bind(Object ref, Stage win, String winTitle) {
+    
+    public static void bind(Object ref, Stage win, Object defaultController) {
         checkInstances(ref, win);
-        windowTitle = winTitle;
+        controller = defaultController;
     }
 
-    public static void bind(Object ref, Stage win, double winWidth, double winHeight) {
+    public static void bind(Object ref, Stage win, Object defaultController, String winTitle) {
         checkInstances(ref, win);
+        windowTitle = winTitle;
+        controller = defaultController;
+    }
+
+    public static void bind(Object ref, Stage win, Object defaultController, double winWidth, double winHeight) {
+        checkInstances(ref, win);
+        controller = defaultController;
         windowWidth = winWidth;
         windowHeight = winHeight;
     }
@@ -139,8 +157,9 @@ public final class FXRouter {
      * @param winWidth: Application Stage width
      * @param winHeight: Application Stage height
      */
-    public static void bind(Object ref, Stage win, String winTitle, double winWidth, double winHeight) {
+    public static void bind(Object ref, Stage win, Object defaultController, String winTitle, double winWidth, double winHeight) {
         checkInstances(ref, win);
+        controller = defaultController;
         windowTitle = winTitle;
         windowWidth = winWidth;
         windowHeight = winHeight;
@@ -159,6 +178,11 @@ public final class FXRouter {
             window = win;
     }
 
+    public static void when(String routeLabel, String scenePath) {
+        RouteScene routeScene = new RouteScene(scenePath);
+        routes.put(routeLabel, routeScene);
+    }
+    
     public static void when(String routeLabel, String scenePath, Object controller) {
         RouteScene routeScene = new RouteScene(scenePath, controller);
         routes.put(routeLabel, routeScene);
@@ -181,8 +205,8 @@ public final class FXRouter {
      * @param sceneWidth: Scene Width
      * @param sceneHeight: Scene Height
      */
-    public static void when(String routeLabel, String scenePath, String winTitle, double sceneWidth, double sceneHeight) {
-        RouteScene routeScene = new RouteScene(scenePath, winTitle, sceneWidth, sceneHeight);
+    public static void when(String routeLabel, String scenePath, Object controller, String winTitle, double sceneWidth, double sceneHeight) {
+        RouteScene routeScene = new RouteScene(scenePath, controller, winTitle, sceneWidth, sceneHeight);
         routes.put(routeLabel, routeScene);
     }
 
