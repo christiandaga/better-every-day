@@ -1,5 +1,7 @@
 package application;
 
+import java.io.IOException;
+
 import org.bson.Document;
 
 import com.mongodb.client.model.Filters;
@@ -29,6 +31,10 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
+		FXRouter.bind(this, primaryStage);
+		FXRouter.when("exampleScreen", "examplescreen.fxml");
+		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml");
 		
 		try {
 			VBox vbox = new VBox(); // Creates a Vertical Box.
@@ -79,7 +85,24 @@ public class Main extends Application {
 				}
 			});
 			
-			vbox.getChildren().addAll(label1, textField, label2, passwordField, loginBtn); // Adds all the nodes created to the scene.
+			Button exampleBtn = new Button("Go to example screen"); // Creates a login button.
+			exampleBtn.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the login button.
+			exampleBtn.setBackground(new Background(new BackgroundFill(cGreen, CornerRadii.EMPTY, Insets.EMPTY)));
+			
+			// When the login button is clicked, the Home page will come up.
+			exampleBtn.setOnAction(new EventHandler<ActionEvent> () {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					try {
+						FXRouter.goTo("exampleScreen");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			
+			vbox.getChildren().addAll(label1, textField, label2, passwordField, loginBtn, exampleBtn); // Adds all the nodes created to the scene.
 			
 			
 			/**
