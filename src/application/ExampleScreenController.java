@@ -35,10 +35,15 @@ public class ExampleScreenController implements Initializable {
 		list.setItems(items);
 		
 		Document u = Db.db.findOne("users", Filters.eq("username", FXRouter.getData()));
-		User user = new User(u);
-		items.add(user.getUsername());
-		items.add(user.getEmail());
-		items.add(String.valueOf(user.getUserLevel()));
+		if (u != null) {
+			User user = new User(u);
+			items.add(user.getUsername());
+			items.add(user.getEmail());
+			items.add(String.valueOf(user.getUserLevel()));
+		} else {
+			items.add("No Data");
+		}
+		
 	}
 	
 }

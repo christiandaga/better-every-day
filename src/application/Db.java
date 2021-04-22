@@ -26,7 +26,7 @@ final class Db {
 			client = new MongoClient(new MongoClientURI("mongodb+srv://christianuser:christianuser@better-every-day-cluste.ttuir.mongodb.net/better-every-day-db?retryWrites=true&w=majority"));
 			database = client.getDatabase("better-every-day-db");
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Cannot connect to MongoDB");
 		}
 	}
 	
@@ -39,7 +39,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).insertOne(item);
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to add item to DB");
 		}
 	}
 	
@@ -52,7 +52,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).insertMany(items);
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to add items to DB");
 		}
 	}
 	
@@ -67,7 +67,7 @@ final class Db {
 			Iterable<Document> ret = database.getCollection(collectionName).find(filter);
 			return ret.iterator().next();
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to find item");
 			return null;
 		}
 	}
@@ -84,7 +84,7 @@ final class Db {
 			database.getCollection(collectionName).find(filter).forEach(list::add);
 			return list;
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to find items");
 			return null;
 		}
 		
@@ -100,7 +100,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).findOneAndReplace(filter, item);
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to replace item");
 		}
 	}
 	
@@ -113,7 +113,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).findOneAndDelete(filter);
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("Failed to delete item");
 		}
 	}
 	
