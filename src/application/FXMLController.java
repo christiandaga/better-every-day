@@ -1,11 +1,13 @@
 package application;
 
 import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class AnotherExampleScreenController {
-	
+// Default Controller
+public class FXMLController {
+
 	@FXML 
 	protected void anotherExampleScreenButtonAction(ActionEvent event) {
 		try {
@@ -14,5 +16,5 @@ public class AnotherExampleScreenController {
 			e.printStackTrace();
 		}
 	}
-
+	
 }

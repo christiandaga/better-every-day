@@ -8,9 +8,9 @@ public class ExampleMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		FXRouter.bind(this, primaryStage);
+		FXRouter.bind(this, primaryStage, new FXMLController());
 		FXRouter.when("exampleScreen", "examplescreen.fxml", new ExampleScreenController());
-		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml", new AnotherExampleScreenController());
+		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml");
 		
 		try {
 			FXRouter.goTo("exampleScreen", "userC");
