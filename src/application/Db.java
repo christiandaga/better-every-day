@@ -13,14 +13,15 @@ import com.mongodb.client.MongoDatabase;
 /**
  * Connects to MongoDB
  */
-public class Db {
+final class Db {
 	public MongoClient client;	// MongoDB client
 	public MongoDatabase database;	// The MongoDB database better-every-day-db
+	public static Db db = new Db();
 	
 	/**
 	 * Connects to db and initializes client and database
 	 */
-	Db() {
+	private Db() {
 		try {
 			client = new MongoClient(new MongoClientURI("mongodb+srv://christianuser:christianuser@better-every-day-cluste.ttuir.mongodb.net/better-every-day-db?retryWrites=true&w=majority"));
 			database = client.getDatabase("better-every-day-db");
