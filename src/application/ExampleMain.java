@@ -1,7 +1,5 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,12 +9,12 @@ public class ExampleMain extends Application {
 	public void start(Stage primaryStage) {
 		
 		FXRouter.bind(this, primaryStage);
-		FXRouter.when("exampleScreen", "examplescreen.fxml");
-		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml");
+		FXRouter.when("exampleScreen", "examplescreen.fxml", new ExampleScreenController());
+		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml", new AnotherExampleScreenController());
 		
 		try {
-			FXRouter.goTo("exampleScreen");
-		} catch (IOException e) {
+			FXRouter.startFrom("exampleScreen");
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

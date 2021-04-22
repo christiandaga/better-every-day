@@ -44,8 +44,6 @@ public final class FXRouter {
     // FXRouter Application Stage reference to set scenes
     private static Stage window;
     
-    private static FXMLExampleController controller;
-
     // Application Stage title
     private static String windowTitle;
     // Application Stage size
@@ -67,6 +65,7 @@ public final class FXRouter {
     private static class RouteScene {
         // route .fxml Scene path
         private String scenePath;
+        private Object controller;
         // Scene (Stage) title
         private String windowTitle;
         private double sceneWidth;
@@ -74,16 +73,16 @@ public final class FXRouter {
         // route data passed from goTo()
         private Object data;
 
-        private RouteScene(String scenePath) {
-            this(scenePath, getWindowTitle(), getWindowWidth(), getWindowHeight());
+        private RouteScene(String scenePath, Object controller) {
+            this(scenePath, controller, getWindowTitle(), getWindowWidth(), getWindowHeight());
         }
 
-        private RouteScene(String scenePath, String windowTitle) {
-            this(scenePath, windowTitle, getWindowWidth(), getWindowHeight());
+        private RouteScene(String scenePath, Object controller, String windowTitle) {
+            this(scenePath, controller, windowTitle, getWindowWidth(), getWindowHeight());
         }
 
-        private RouteScene(String scenePath, double sceneWidth, double sceneHeight) {
-            this(scenePath, getWindowTitle(), sceneWidth, sceneHeight);
+        private RouteScene(String scenePath, Object controller, double sceneWidth, double sceneHeight) {
+            this(scenePath, controller, getWindowTitle(), sceneWidth, sceneHeight);
         }
 
         /** Route scene constructor
@@ -92,11 +91,12 @@ public final class FXRouter {
          * @param sceneWidth: Scene Width
          * @param sceneHeight: Scene Height
          */
-        private RouteScene(String scenePath, String windowTitle, double sceneWidth, double sceneHeight) {
+        private RouteScene(String scenePath, Object controller, String windowTitle, double sceneWidth, double sceneHeight) {
             this.scenePath = scenePath;
             this.windowTitle = windowTitle;
             this.sceneWidth = sceneWidth;
             this.sceneHeight = sceneHeight;
+            this.controller = controller;
         }
 
         private static String getWindowTitle() {
@@ -157,22 +157,20 @@ public final class FXRouter {
             router = new FXRouter();
         if(window == null)
             window = win;
-        if(controller == null)
-        	controller = new FXMLExampleController();
     }
 
-    public static void when(String routeLabel, String scenePath) {
-        RouteScene routeScene = new RouteScene(scenePath);
+    public static void when(String routeLabel, String scenePath, Object controller) {
+        RouteScene routeScene = new RouteScene(scenePath, controller);
         routes.put(routeLabel, routeScene);
     }
 
-    public static void when(String routeLabel, String scenePath, String winTitle) {
-        RouteScene routeScene = new RouteScene(scenePath, winTitle);
+    public static void when(String routeLabel, String scenePath, Object controller, String winTitle) {
+        RouteScene routeScene = new RouteScene(scenePath, controller, winTitle);
         routes.put(routeLabel, routeScene);
     }
 
-    public static void when(String routeLabel, String scenePath, double sceneWidth, double sceneHeight) {
-        RouteScene routeScene = new RouteScene(scenePath, sceneWidth, sceneHeight);
+    public static void when(String routeLabel, String scenePath, Object controller, double sceneWidth, double sceneHeight) {
+        RouteScene routeScene = new RouteScene(scenePath, controller, sceneWidth, sceneHeight);
         routes.put(routeLabel, routeScene);
     }
 
@@ -223,7 +221,7 @@ public final class FXRouter {
         // load .fxml resource
         // Parent resource = FXMLLoader.load(new Object() { }.getClass().getResource(scenePath));
         FXMLLoader loader = new FXMLLoader(new Object() { }.getClass().getResource(scenePath));
-        loader.setController(controller);
+        loader.setController(route.controller);
         Parent resource = loader.load();
 
         // set window title from route settings or default setting
