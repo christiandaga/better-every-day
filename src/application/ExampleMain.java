@@ -13,7 +13,7 @@ public class ExampleMain extends Application {
 		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml", new AnotherExampleScreenController());
 		
 		try {
-			FXRouter.startFrom("exampleScreen");
+			FXRouter.goTo("exampleScreen", "userC");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
