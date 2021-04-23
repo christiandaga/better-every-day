@@ -15,7 +15,7 @@ public class ExampleMain extends Application {
 		try {
 			FXRouter.goTo("exampleScreen", "userC");
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();  
 		}
 	}
 	
