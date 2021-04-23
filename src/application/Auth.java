@@ -8,6 +8,7 @@ public final class Auth {
 
 	public static User currentUser;
 	
+	static int test;
 	public static boolean login(String username, String password) {
 		Document user = Db.db.findOne("users", Filters.and(Filters.eq("username", username), Filters.eq("password", password)));
 		if (user != null) {
