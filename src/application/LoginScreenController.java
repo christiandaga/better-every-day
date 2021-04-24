@@ -39,19 +39,9 @@ public class LoginScreenController {
 	// When the register button is clicked, the Create Account screen comes up.
 	@FXML 
 	protected void register(ActionEvent event) throws IOException {
-<<<<<<< HEAD
-		
-		try {
-			FXRouter.goTo("CreateAccountScreen"); // Switches to the Create Account screen.
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-=======
 		
 		FXRouter.goTo("register");
 		
->>>>>>> b8a07b2 (login/register connection)
 		// ExampleMain exampleMain = new ExampleMain();
 		// exampleMain.changeScene("CreateAccountScreen.fxml");
 	}
@@ -79,16 +69,9 @@ public class LoginScreenController {
 	@FXML
 	protected void login(ActionEvent event) throws IOException
 	{
-<<<<<<< HEAD
-		try {
-			FXRouter.goTo("HomeScreen"); // Switches to the Home screen.
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		// ExampleMain exampleMain = new ExampleMain();
 		// exampleMain.changeScene("HomeScreen.fxml");
-=======
 		// ExampleMain exampleMain = new ExampleMain();
 		// exampleMain.changeScene("HomeScreen.fxml");
 		
@@ -96,6 +79,5 @@ public class LoginScreenController {
 			FXRouter.goTo("home");
 		}
 		
->>>>>>> b8a07b2 (login/register connection)
 	}
 }
