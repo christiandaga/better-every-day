@@ -1,5 +1,7 @@
 package application;
 
+import java.io.IOException;
+
 import org.bson.Document;
 
 import com.mongodb.client.model.Filters;
@@ -29,7 +31,10 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		Db db = new Db();
+		
+		FXRouter.bind(this, primaryStage, new CreateAccountController());
+		FXRouter.when("exampleScreen", "examplescreen.fxml", new LoginScreenController());
+		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml");
 		
 		try {
 			VBox vbox = new VBox(); // Creates a Vertical Box.
@@ -57,21 +62,38 @@ public class Main extends Application {
 				
 				@Override
 				public void handle(ActionEvent event) {
-					User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
+					// User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
 					//Document doc = new Document("username", textField.getText()).append("password", passwordField.getText()); // Initializes MongoDB document containing user info.
-					db.addItemToDB("users", newUser.getDocument()); // Adds user document to database.
+					// Db.db.addItemToDB("users", newUser.getDocument()); // Adds user document to database.
 					
 					VBox vbox2 = new VBox(); // Creates a Vertical Box.
 					vbox2.setStyle("-fx-background-color: green;"); // Sets background color of the Vertical Box to green.
 					vbox2.setSpacing(20); // Sets spacing for the Vertical Box.
 					vbox2.setPadding(new Insets(20, 20, 20, 20)); // Sets padding for the Vertical Box.
 					
-					Document user = db.findOne("users", Filters.eq("username", textField.getText())); // Gets user from db
+					Document user = Db.db.findOne("users", Filters.eq("username", textField.getText())); // Gets user from db
 					
 					Label label3 = new Label("Welcome, " + (user == null ? "<username>" : user.getString("username")) + "!"); // Creates a label to welcome the user to the Home page.
 					label3.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the 'welcome' label.
 					
-					vbox2.getChildren().add(label3); // Adds the 'welcome' label to the scene.
+					Button exampleBtn = new Button("Go to example screen");
+					exampleBtn.setFont(Font.font("Monserrat", FontWeight.BOLD, 20));
+					exampleBtn.setBackground(new Background(new BackgroundFill(cGreen, CornerRadii.EMPTY, Insets.EMPTY)));
+					
+					// When the login button is clicked, the Home page will come up.
+					exampleBtn.setOnAction(new EventHandler<ActionEvent> () {
+						
+						@Override
+						public void handle(ActionEvent event) {
+							try {
+								FXRouter.goTo("exampleScreen", textField.getText());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					
+					vbox2.getChildren().addAll(label3, exampleBtn); // Adds the 'welcome' label to the scene.
 					
 					Scene newScene = new Scene(vbox2, 600, 400); // Creates a scene.
 					primaryStage.setTitle("Home Page"); // Sets the title of the stage.
@@ -79,6 +101,8 @@ public class Main extends Application {
 					primaryStage.show(); // Displays the stage.
 				}
 			});
+			
+			
 			
 			vbox.getChildren().addAll(label1, textField, label2, passwordField, loginBtn); // Adds all the nodes created to the scene.
 			
