@@ -29,6 +29,12 @@ public class User {
 		return username;
 	}
 	
+	// Returns the user's password.
+	public String getPassword()
+	{
+		return password;
+	}
+	
 	// Returns the user's email.
 	public String getEmail() {
 		return email;
