@@ -77,6 +77,8 @@ public class LoginScreenController {
 		
 		if (Auth.login(username.getText(), password.getText())) {
 			FXRouter.goTo("home");
+		} else {
+			incorrectLogin.setText("Invalid username/password");
 		}
 		
 	}
