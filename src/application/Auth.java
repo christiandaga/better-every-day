@@ -17,5 +17,4 @@ public final class Auth {
 	public static void logout() {
 		currentUser = null;
 	}
-	
 }

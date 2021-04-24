@@ -32,8 +32,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		FXRouter.bind(this, primaryStage, new FXMLController());
-		FXRouter.when("exampleScreen", "examplescreen.fxml", new ExampleScreenController());
+		FXRouter.bind(this, primaryStage, new CreateAccountController());
+		FXRouter.when("exampleScreen", "examplescreen.fxml", new LoginScreenController());
 		FXRouter.when("anotherExampleScreen", "anotherexamplescreen.fxml");
 		
 		try {
