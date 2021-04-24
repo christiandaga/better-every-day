@@ -62,9 +62,22 @@ public class Main extends Application {
 				
 				@Override
 				public void handle(ActionEvent event) {
-					// User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
+					User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
+					
+					Habit myHabit = new Habit("Swimming", 2);
+					myHabit.addSchedule("Saturday", "2 pm", 30);
+					myHabit.addSchedule("Sunday", "3 pm", 60);
+					
+					newUser.addHabit(myHabit);
+					
+					newUser.viewHabits();
+					
+					
+					
 					//Document doc = new Document("username", textField.getText()).append("password", passwordField.getText()); // Initializes MongoDB document containing user info.
 					// Db.db.addItemToDB("users", newUser.getDocument()); // Adds user document to database.
+					
+					String uname = textField.getText();
 					
 					VBox vbox2 = new VBox(); // Creates a Vertical Box.
 					vbox2.setStyle("-fx-background-color: green;"); // Sets background color of the Vertical Box to green.
@@ -73,8 +86,13 @@ public class Main extends Application {
 					
 					Document user = Db.db.findOne("users", Filters.eq("username", textField.getText())); // Gets user from db
 					
-					Label label3 = new Label("Welcome, " + (user == null ? "<username>" : user.getString("username")) + "!"); // Creates a label to welcome the user to the Home page.
+					
+					
+					// Label label3 = new Label("Welcome, " + (user == null ? "username" : user.getString("username")) + "!"); // Creates a label to welcome the user to the Home page.
+					Label label3 = new Label("WELCOME, " + uname + "!"); // Creates a label to welcome the user to the Home page.
 					label3.setFont(Font.font("Monserrat", FontWeight.BOLD, 20)); // Sets font properties of the 'welcome' label.
+					
+					// Label label4 = new Label("User Level" + ((  user.getUserLevel() )));
 					
 					Button exampleBtn = new Button("Go to example screen");
 					exampleBtn.setFont(Font.font("Monserrat", FontWeight.BOLD, 20));
