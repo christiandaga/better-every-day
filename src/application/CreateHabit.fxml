@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="125.0">
+         <children>
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0">
+              <items>
+                <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="HOME" />
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+              </items>
+               <padding>
+                  <Insets left="30.0" top="30.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="400.0" prefWidth="510.0">
+         <children>
+            <AnchorPane prefHeight="70.0" prefWidth="510.0">
+               <children>
+                  <Label layoutX="163.0" layoutY="19.0" text="Create a habit!">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="40.0" layoutY="55.0" prefWidth="430.0" />
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="330.0" prefWidth="510.0">
+               <children>
+                  <VBox prefHeight="330.0" prefWidth="255.0" spacing="11.0">
+                     <children>
+                        <VBox prefHeight="20.0" prefWidth="100.0">
+                           <children>
+                              <TextField />
+                              <Label text="Title of Habit">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <MenuButton mnemonicParsing="false" text="Frequency">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Every day" />
+                            <MenuItem mnemonicParsing="false" text="Once a week" />
+                              <MenuItem mnemonicParsing="false" text="Once a month" />
+                          </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                        <HBox prefHeight="30.0" prefWidth="226.0" spacing="7.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="M" />
+                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="T" />
+                              <Button mnemonicParsing="false" text="W" />
+                              <Button mnemonicParsing="false" text="T" />
+                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="F" />
+                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
+                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
+                           </children>
+                        </HBox>
+                        <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="177.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="55.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.0" minWidth="10.0" prefWidth="20.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="53.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="93.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="07" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="00" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="AM" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <Button alignment="CENTER" mnemonicParsing="false" text="CREATE HABIT" textAlignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="330.0" prefWidth="255.0" spacing="10.0">
+                     <children>
+                        <MenuButton mnemonicParsing="false" text="Category">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Diet" />
+                              <MenuItem mnemonicParsing="false" text="Exercise" />
+                              <MenuItem mnemonicParsing="false" text="Education" />
+                              <MenuItem mnemonicParsing="false" text="Custom" />
+                           </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                        <CheckBox mnemonicParsing="false" text="Level">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Icon">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <ColorPicker />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" text="CANCEL">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
