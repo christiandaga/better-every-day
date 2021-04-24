@@ -2,10 +2,18 @@ package application;
 
 import org.bson.Document;
 
+import java.util.LinkedList; 
+import java.util.ArrayList;
+
+
 public class Habit {
 	private String name; // Name of the habit. 
 	private int level; // Level of the habit.
 	private int points; // Points gained by doing the habit.
+	private int pointsEarned; // each time a schedule is met, increase by points
+	private ArrayList<Schedule> schedule = new ArrayList<Schedule>(); 
+	// private Schedule[] schedule;
+	
 	
 	public Habit(String name, int points) { 
 		this.name = name;
@@ -26,7 +34,10 @@ public class Habit {
 
 	// Sets the habit level to a new habit level.
 	public void setLevel(int level) {
-		this.level = level;
+		int tempLevel = level; 
+		if (this.points > 100) tempLevel = tempLevel + 1;
+		
+		this.level = tempLevel;
 	}
 
 	// Returns the points gained by doing the habit.
@@ -55,4 +66,22 @@ public class Habit {
 				.append("level", level)
 				.append("points", points);
 	}
+	
+	public void addSchedule(String day, String startTime, int duration ) { 
+		Schedule x = new Schedule(day, startTime, duration);
+		schedule.add(x);
+	}
+	
+	public void dropSchedule(Schedule i) { 
+		schedule.remove(i);
+	}
+	
+	public void viewSchedules() { 
+		for (int i = 0; i < schedule.size(); i++) { 
+			System.out.println("DAY: " + schedule.get(i).getDayofWeek());
+			System.out.print(" START: " + schedule.get(i).getStartTime());
+			System.out.print(" DAY: " + schedule.get(i).getDuration());
+		}
+	}
+	
 }
