@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   
 # Compiled class file
 *.class
@@ -25,4 +26,6 @@ hs_err_pid*
 /target/
 .classpath
 /src/
+=======
+>>>>>>> 412c19a (adsfawewafeawfawefawf)
 /application/
