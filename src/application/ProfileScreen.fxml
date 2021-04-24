@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="125.0">
+         <children>
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+              <items>
+                <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+              </items>
+               <padding>
+                  <Insets left="30.0" top="30.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="400.0" prefWidth="510.0">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="510.0">
+               <children>
+                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="57.0" layoutY="60.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label layoutX="48.0" layoutY="58.0" text="level" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="151.0" layoutY="25.0" text="username">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="330.0" layoutY="25.0" text="# days on app">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar layoutX="151.0" layoutY="84.0" prefHeight="18.0" prefWidth="330.0" progress="0.0" />
+                  <Label layoutX="151.0" layoutY="106.0" text="progress bar">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="250.0" prefWidth="510.0">
+               <content>
+                  <TilePane prefHeight="250.0" prefWidth="510.0">
+                     <children>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="161.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/diet-category.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" text="Diet" />
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/custom-category.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Custom " />
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/exercise-category.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Exercise" />
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/education-category.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Education" />
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </TilePane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>
