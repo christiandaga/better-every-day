@@ -23,7 +23,11 @@ public class ExampleMain extends Application {
 			e.printStackTrace();  
 		}
 		
+<<<<<<< HEAD
 		/**
+=======
+		/*
+>>>>>>> b8a07b2 (login/register connection)
 		tempStage = primaryStage;
 		primaryStage.setResizable(false); // The user is not allowed to resize the screen.
 		
@@ -32,18 +36,40 @@ public class ExampleMain extends Application {
 		
 		Scene scene = new Scene(root, 840, 600);
 		primaryStage.setScene(scene);
+<<<<<<< HEAD
 		primaryStage.show();
 		*/
+=======
+		primaryStage.show();*/
+		
+		primaryStage.setResizable(false);
+		FXRouter.bind(this, primaryStage, new DefaultController(), "Better Every Day");
+		FXRouter.when("login", "LoginScreen.fxml", new LoginScreenController());
+		FXRouter.when("register", "CreateAccountScreen.fxml", new CreateAccountController());
+		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController());
+		FXRouter.when("profile", "ProfileScreen.fxml");
+		FXRouter.when("createHabit", "CreateHabit.fxml");
+		
+		try {
+			FXRouter.startFrom("login");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+>>>>>>> b8a07b2 (login/register connection)
 	}
 	
 	/**
 	// Allows us to change from one scene to another scene.
-	public void changeScene(String fxmlFile) throws IOException
+	/*public void changeScene(String fxmlFile) throws IOException
 	{
 		Parent pane = FXMLLoader.load(getClass().getResource(fxmlFile)); // We input the .fxml file we want to load.
 		tempStage.getScene().setRoot(pane);
+<<<<<<< HEAD
 	}
 	*/
+=======
+	}*/
+>>>>>>> b8a07b2 (login/register connection)
 	
 	public static void main(String[] args) {
 		launch(args);

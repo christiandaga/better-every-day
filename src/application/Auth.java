@@ -10,8 +10,24 @@ public final class Auth {
 	
 	public static boolean login(String username, String password) {
 		Document user = Db.db.findOne("users", Filters.and(Filters.eq("username", username), Filters.eq("password", password)));
-		currentUser = new User(user);
-		return user != null;
+		if (user != null) {
+			currentUser = new User(user);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static boolean createUser(String username, String password, String email) {
+		Document user = Db.db.findOne("users", Filters.eq("username", username));
+		if (user == null) {
+			currentUser = new User(username, password, email);
+			Db.db.addItemToDB("users", currentUser.getDocument());
+			return true;
+		}
+		
+		return false;
+			
 	}
 	
 	public static void logout() {
