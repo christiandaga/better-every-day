@@ -32,6 +32,7 @@ public final class Auth {
 	}
 	
 	public static void logout() {
+		RemindersManager.stop();
 		currentUser = null;
 	}
 }

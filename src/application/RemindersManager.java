@@ -24,4 +24,8 @@ public final class RemindersManager {
 		t.scheduleAtFixedRate(reminder, 0, 5000);
 	}
 	
+	public static void stop() {
+		t.cancel();
+	}
+	
 }
