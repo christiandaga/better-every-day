@@ -13,6 +13,7 @@ public final class Auth {
 		Document user = Db.db.findOne("users", Filters.and(Filters.eq("username", username), Filters.eq("password", password)));
 		if (user != null) {
 			currentUser = new User(user);
+			RemindersManager.init();
 			return true;
 		}
 		
@@ -35,6 +36,7 @@ public final class Auth {
 	
 	// Logs out of account.
 	public static void logout() {
+		RemindersManager.stop();
 		currentUser = null;
 	}
 }
