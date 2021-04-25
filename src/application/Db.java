@@ -117,4 +117,17 @@ final class Db {
 		}
 	}
 	
+	/**
+	 * Finds and updates an item
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 * @param update the Bson update ex: Updates.set("username", "Bob")
+	 */
+	public void updateItem(String collectionName, Bson filter, Bson update) {
+		try {
+			database.getCollection(collectionName).updateOne(filter, update);
+		} catch(Exception e) {
+			System.out.println("Failed to update item");
+		}
+	}
 }

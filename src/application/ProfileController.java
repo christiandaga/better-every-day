@@ -30,8 +30,8 @@ public class ProfileController implements Initializable {
 	}
 	
 	@FXML
-	protected void goToSettings() {
-		
+	protected void goToSettings() throws IOException {
+		FXRouter.goTo("settings");
 	}
 
 	@Override

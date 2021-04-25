@@ -21,10 +21,11 @@ public class CreateHabitController {
 	}
 	
 	@FXML
-	protected void goToSettings() {
-		
+	protected void goToSettings() throws IOException {
+		FXRouter.goTo("settings");
 	}
 	
+	// Adds habit to user's list of habits.
 	@FXML
 	protected void createHabit() throws IOException {
 		Habit habit = new Habit(name.getText(), 100);
@@ -32,6 +33,7 @@ public class CreateHabitController {
 		FXRouter.goTo("home");
 	}
 	
+	// Habit is not created and user is returned to home.
 	@FXML
 	protected void cancel() throws IOException {
 		FXRouter.goTo("home");

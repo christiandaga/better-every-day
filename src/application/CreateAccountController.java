@@ -2,8 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import org.bson.Document;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,9 +29,6 @@ public class CreateAccountController {
 	// When the Create Account button is clicked, the Home Screen comes up.
 	@FXML 
 	protected void createAccount(ActionEvent event) throws IOException {
-		
-		// ExampleMain exampleMain = new ExampleMain();
-		// exampleMain.changeScene("HomeScreen.fxml");
 		
 		boolean ok = Auth.createUser(username.getText(), password.getText(), email.getText());
 		
