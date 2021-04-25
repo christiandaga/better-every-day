@@ -21,8 +21,8 @@
             <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
               <items>
                 <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
               </items>
                <padding>
                   <Insets left="30.0" top="30.0" />
@@ -52,7 +52,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="228.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="68.0" text="+">
+                              <Button mnemonicParsing="false"  onAction="#createHabit" prefHeight="57.0" prefWidth="68.0" text="+">
                                  <font>
                                     <Font size="23.0" />
                                  </font>

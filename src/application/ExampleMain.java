@@ -39,7 +39,7 @@ public class ExampleMain extends Application {
 		FXRouter.when("login", "LoginScreen.fxml", new LoginScreenController());
 		FXRouter.when("register", "CreateAccountScreen.fxml", new CreateAccountController());
 		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController());
-		FXRouter.when("profile", "ProfileScreen.fxml");
+		FXRouter.when("profile", "ProfileScreen.fxml", new ProfileController());
 		FXRouter.when("createHabit", "CreateHabit.fxml");
 		
 		try {

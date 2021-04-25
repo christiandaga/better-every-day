@@ -68,9 +68,9 @@ public class Main extends Application {
 					myHabit.addSchedule("Saturday", "2 pm", 30);
 					myHabit.addSchedule("Sunday", "3 pm", 60);
 					
-					newUser.addHabit(myHabit);
-					
-					newUser.viewHabits();
+//					newUser.addHabit(myHabit);
+//					
+//					newUser.viewHabits();
 					
 					
 					

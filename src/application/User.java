@@ -9,7 +9,7 @@ public class User {
 	private String password; // Password of the user.
 	private String email; // Email of the user.
 	private int userLevel; // Level of the user. 
-	private ArrayList<Habit> Habits = new ArrayList<Habit>() ; 
+	// private ArrayList<Habit> Habits = new ArrayList<Habit>() ; 
 	
 	// Constructor to set the user's username, password, and email.
 	User(String username, String password, String email) {
@@ -69,22 +69,22 @@ public class User {
 		
 	}
 	
-	public void addHabit(Habit x) { 
-		Habits.add(x);
-	}
-	
-	public void dropHabit(String habitName) { 
-		
-	}
-	
-	public void viewHabits() { 
-		for (int i = 0; i < Habits.size(); i++) { 
-			System.out.println("Habits: ");
-			System.out.print("Name: " + Habits.get(i).getName());
-			System.out.print(" Points: " + Habits.get(i).getPoints());
-			System.out.println(" Level: " + Habits.get(i).getLevel());
-		}
-	}
+//	public void addHabit(Habit x) { 
+//		Habits.add(x);
+//	}
+//	
+//	public void dropHabit(String habitName) { 
+//		
+//	}
+//	
+//	public void viewHabits() { 
+//		for (int i = 0; i < Habits.size(); i++) { 
+//			System.out.println("Habits: ");
+//			System.out.print("Name: " + Habits.get(i).getName());
+//			System.out.print(" Points: " + Habits.get(i).getPoints());
+//			System.out.println(" Level: " + Habits.get(i).getLevel());
+//		}
+//	}
 	
 	
 	// Returns Document containing user information
