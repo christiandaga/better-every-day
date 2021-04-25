@@ -24,9 +24,9 @@
          <children>
             <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0">
               <items>
-                <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="HOME" />
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+                <Button mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
+                  <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
+                  <Button mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
               </items>
                <padding>
                   <Insets left="30.0" top="30.0" />
@@ -52,7 +52,7 @@
                      <children>
                         <VBox prefHeight="20.0" prefWidth="100.0">
                            <children>
-                              <TextField />
+                              <TextField fx:id="name" />
                               <Label text="Title of Habit">
                                  <font>
                                     <Font size="15.0" />
@@ -122,7 +122,7 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Button alignment="CENTER" mnemonicParsing="false" text="CREATE HABIT" textAlignment="CENTER">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createHabit" text="CREATE HABIT" textAlignment="CENTER">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -168,7 +168,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" text="CANCEL">
+                        <Button mnemonicParsing="false" onAction="#cancel" text="CANCEL">
                            <font>
                               <Font size="15.0" />
                            </font>

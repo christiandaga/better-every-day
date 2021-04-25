@@ -1,5 +1,7 @@
 package application;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+
+import org.bson.Document; 
 
 
 public class Schedule {
@@ -16,10 +18,16 @@ public class Schedule {
 	
 	public Schedule(String dayofWeek, String startTime, int duration ) { 
 		
-		dayofWeek = this.dayofWeek;
-		startTime = this.startTime;
-		duration = this.duration; 
+		this.dayofWeek = dayofWeek;
+		this.startTime = startTime;
+		this.duration = duration;
 		
+	}
+	
+	public Schedule(Document schedule) {
+		dayofWeek = schedule.getString("dayofWeek");
+		startTime = schedule.getString("startTime");
+		duration = schedule.getInteger("duration");
 	}
 
 	public String getDayofWeek() {
@@ -46,6 +54,10 @@ public class Schedule {
 		this.duration = duration;
 	}
 	
-	
+	public Document getDocument() {
+		return new Document("dayofWeek", dayofWeek)
+				.append("startTime", startTime)
+				.append("duration", duration);
+	}
 	
 }

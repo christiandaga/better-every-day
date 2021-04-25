@@ -35,14 +35,15 @@ public class CreateAccountController {
 		// ExampleMain exampleMain = new ExampleMain();
 		// exampleMain.changeScene("HomeScreen.fxml");
 		
-		User newUser = new User(username.getText(), password.getText(), email.getText()); // Creates a new user containing the username, password, and email.
-		Document doc = new Document("username", newUser.getUsername()).append("password", newUser.getPassword()).append("email", newUser.getEmail()).append("userLevel", newUser.getUserLevel()); // Initializes MongoDB document containing user information.
-		Db.db.addItemToDB("users", doc); // Adds user document to database.
+		boolean ok = Auth.createUser(username.getText(), password.getText(), email.getText());
 		
-		try {
-			FXRouter.goTo("HomeScreen"); // Switches to the Home screen.
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (ok) {
+			try {
+				FXRouter.goTo("home");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+		
 	}
 }
