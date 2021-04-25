@@ -1,6 +1,5 @@
 package application;
 
-<<<<<<< HEAD
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -21,9 +20,4 @@ public class DefaultController {
 	protected void goToSettings() {
 		
 	}
-	
-=======
-public class DefaultController {
-
->>>>>>> 8279db96770b12488636556b9a17ecdf54c87711
 }

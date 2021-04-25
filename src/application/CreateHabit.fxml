@@ -52,7 +52,7 @@
                      <children>
                         <VBox prefHeight="20.0" prefWidth="100.0">
                            <children>
-                              <TextField />
+                              <TextField fx:id="name" />
                               <Label text="Title of Habit">
                                  <font>
                                     <Font size="15.0" />
@@ -122,7 +122,7 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Button alignment="CENTER" mnemonicParsing="false" text="CREATE HABIT" textAlignment="CENTER">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createHabit" text="CREATE HABIT" textAlignment="CENTER">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -168,7 +168,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" text="CANCEL">
+                        <Button mnemonicParsing="false" onAction="#cancel" text="CANCEL">
                            <font>
                               <Font size="15.0" />
                            </font>

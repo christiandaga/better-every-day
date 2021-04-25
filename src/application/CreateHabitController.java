@@ -3,8 +3,12 @@ package application;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
-public class HomeScreenController {
+public class CreateHabitController {
+	
+	@FXML
+	private TextField name;
 
 	@FXML
 	protected void goHome() throws IOException {
@@ -23,7 +27,14 @@ public class HomeScreenController {
 	
 	@FXML
 	protected void createHabit() throws IOException {
-		FXRouter.goTo("createHabit");
+		Habit habit = new Habit(name.getText(), 100);
+		Db.db.addItemToDB("habits", habit.getDocument());
+		FXRouter.goTo("home");
+	}
+	
+	@FXML
+	protected void cancel() throws IOException {
+		FXRouter.goTo("home");
 	}
 	
 }

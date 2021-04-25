@@ -65,8 +65,8 @@ public class Main extends Application {
 					User newUser = new User(textField.getText(), passwordField.getText(), "userC@c.com");
 					
 					Habit myHabit = new Habit("Swimming", 2);
-					myHabit.addSchedule("Saturday", "2 pm", 30);
-					myHabit.addSchedule("Sunday", "3 pm", 60);
+//					myHabit.addSchedule("Saturday", "2 pm", 30);
+//					myHabit.addSchedule("Sunday", "3 pm", 60);
 					
 //					newUser.addHabit(myHabit);
 //					

@@ -10,8 +10,8 @@ public class Habit {
 	private String name; // Name of the habit. 
 	private int level; // Level of the habit.
 	private int points; // Points gained by doing the habit.
-	private int pointsEarned; // each time a schedule is met, increase by points
-	private ArrayList<Schedule> schedule = new ArrayList<Schedule>(); 
+	// private int pointsEarned; // each time a schedule is met, increase by points
+	// private ArrayList<Schedule> schedule = new ArrayList<Schedule>(); 
 	// private Schedule[] schedule;
 	
 	
@@ -67,21 +67,21 @@ public class Habit {
 				.append("points", points);
 	}
 	
-	public void addSchedule(String day, String startTime, int duration ) { 
-		Schedule x = new Schedule(day, startTime, duration);
-		schedule.add(x);
-	}
-	
-	public void dropSchedule(Schedule i) { 
-		schedule.remove(i);
-	}
-	
-	public void viewSchedules() { 
-		for (int i = 0; i < schedule.size(); i++) { 
-			System.out.println("DAY: " + schedule.get(i).getDayofWeek());
-			System.out.print(" START: " + schedule.get(i).getStartTime());
-			System.out.print(" DAY: " + schedule.get(i).getDuration());
-		}
-	}
+//	public void addSchedule(String day, String startTime, int duration ) { 
+//		Schedule x = new Schedule(day, startTime, duration);
+//		schedule.add(x);
+//	}
+//	
+//	public void dropSchedule(Schedule i) { 
+//		schedule.remove(i);
+//	}
+//	
+//	public void viewSchedules() { 
+//		for (int i = 0; i < schedule.size(); i++) { 
+//			System.out.println("DAY: " + schedule.get(i).getDayofWeek());
+//			System.out.print(" START: " + schedule.get(i).getStartTime());
+//			System.out.print(" DAY: " + schedule.get(i).getDuration());
+//		}
+//	}
 	
 }

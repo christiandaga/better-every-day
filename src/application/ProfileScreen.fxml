@@ -36,7 +36,7 @@
             <AnchorPane prefHeight="150.0" prefWidth="510.0">
                <children>
                   <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="57.0" layoutY="60.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label layoutX="48.0" layoutY="58.0" text="level" textFill="WHITE">
+                  <Label fx:id="level" layoutX="48.0" layoutY="58.0" text="level" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>

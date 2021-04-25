@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 public class ProfileController implements Initializable {
 	
 	@FXML
+	private Label level;
+	
+	@FXML
 	private Label username;
 	
 	@FXML
@@ -34,6 +37,7 @@ public class ProfileController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		username.setText(Auth.currentUser.getUsername());
+		level.setText(String.valueOf(Auth.currentUser.getUserLevel()));
 	}
 	
 }
