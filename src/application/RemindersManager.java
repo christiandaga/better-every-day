@@ -14,6 +14,7 @@ public final class RemindersManager {
 	
 	public static void init() {
 		t = new Timer();
+		reminders = new ArrayList<Reminder>();
 		Db.db.findMany("reminders", Filters.eq("username", Auth.currentUser.getUsername())).forEach((Document reminder) -> reminders.add(new Reminder(reminder)));
 		reminders.forEach((Reminder reminder) -> t.scheduleAtFixedRate(reminder, 0, 5000));
 	}
