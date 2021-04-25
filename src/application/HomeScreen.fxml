@@ -3,16 +3,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
+<!-- <AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+</AnchorPane> -->
 
 <FlowPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -30,7 +32,7 @@
             </ToolBar>
          </children>
       </AnchorPane>
-      <VBox fillWidth="false" prefWidth="510.0">
+      <VBox fillWidth="false" prefHeight="400.0" prefWidth="301.0">
          <children>
             <AnchorPane prefHeight="70.0" prefWidth="510.0">
                <children>
@@ -46,35 +48,25 @@
                   <Insets />
                </VBox.margin>
             </AnchorPane>
-            <ScrollPane prefHeight="330.0" prefWidth="510.0">
-               <content>
-                  <TilePane prefHeight="330.0" prefWidth="510.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="228.0">
-                           <children>
-                              <Button mnemonicParsing="false"  onAction="#createHabit" prefHeight="57.0" prefWidth="68.0" text="+">
-                                 <font>
-                                    <Font size="23.0" />
-                                 </font>
-                              </Button>
-                              <Label prefHeight="67.0" prefWidth="180.0" text="Create new habit!">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children></TilePane>
-               </content>
-            </ScrollPane>
+            <ListView fx:id="habitList" prefHeight="279.0" prefWidth="500.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="228.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="57.0" prefWidth="68.0" text="+">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Button>
+                  <Label prefHeight="67.0" prefWidth="180.0" text="Create new habit!">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
 </FlowPane>
-<?import javafx.scene.layout.AnchorPane?>
-
-<!-- <AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-</AnchorPane> -->

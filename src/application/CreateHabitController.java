@@ -28,7 +28,7 @@ public class CreateHabitController {
 	@FXML
 	protected void createHabit() throws IOException {
 		Habit habit = new Habit(name.getText(), 100);
-		Db.db.addItemToDB("habits", habit.getDocument());
+		Db.db.addItemToDB("habits", habit.getDocument().append("username", Auth.currentUser.getUsername()));
 		FXRouter.goTo("home");
 	}
 	
