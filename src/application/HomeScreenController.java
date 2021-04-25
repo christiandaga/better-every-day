@@ -29,8 +29,8 @@ public class HomeScreenController implements Initializable {
 	}
 	
 	@FXML
-	protected void goToSettings() {
-		
+	protected void goToSettings() throws IOException {
+		FXRouter.goTo("settings");
 	}
 	
 	@FXML
