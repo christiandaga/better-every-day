@@ -41,9 +41,9 @@ public final class FXRouter {
     // FXRouter Singleton
     private static FXRouter router;
     // FXRouter Main Class reference to get main package
-    private static Object mainRef;
+    public static Object mainRef;
     // FXRouter Application Stage reference to set scenes
-    private static Stage window;
+    public static Stage window;
     
     private static Object controller;
     

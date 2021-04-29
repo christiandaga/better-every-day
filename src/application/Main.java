@@ -1,6 +1,7 @@
 package application;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -41,7 +42,9 @@ public class Main extends Application {
 		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController());
 		FXRouter.when("profile", "ProfileScreen.fxml", new ProfileController());
 		FXRouter.when("createHabit", "CreateHabit.fxml", new CreateHabitController());
-    FXRouter.when("settings", "Settings.fxml", new SettingsController());
+		FXRouter.when("settings", "Settings.fxml", new SettingsController());
+		
+		Platform.setImplicitExit(false);
 		
 		try {
 			FXRouter.startFrom("login");
