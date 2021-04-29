@@ -53,6 +53,11 @@ public class Main extends Application {
 		}
 	}
 	
+	@Override
+	public void stop() {
+		RemindersManager.stop();
+	}
+	
 	/**
 	// Allows us to change from one scene to another scene.
 	/*public void changeScene(String fxmlFile) throws IOException

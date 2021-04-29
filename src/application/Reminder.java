@@ -22,6 +22,7 @@ public class Reminder extends TimerTask {
 	private int minute;
 	
 	private Popup popup;
+	private boolean shown;
 	
 	Reminder(String name, int day, int hour, int minute) {
 		this.name = name;
@@ -42,6 +43,8 @@ public class Reminder extends TimerTask {
 	}
 	
 	private void createPopup() {
+		shown = false;
+		
 		Label label = new Label(name + " Reminder!");
 		Button button = new Button("Close");
 		popup = new Popup();
@@ -50,6 +53,7 @@ public class Reminder extends TimerTask {
 		label.setMinHeight(150);
 		popup.getContent().add(label);
 		popup.getContent().add(button);
+		
 		EventHandler<ActionEvent> event = 
 				new EventHandler<ActionEvent>() {
 			        public void handle(ActionEvent e) {
@@ -71,8 +75,13 @@ public class Reminder extends TimerTask {
 	public void run() {
 		date = new Date();
 		if (date.getDay() == day && date.getHours() == hour && date.getMinutes() == minute) {
-			System.out.println(name + " reminder");
-			Platform.runLater(() -> popup.show(FXRouter.window));
+			if (!shown) {
+				System.out.println(name + " reminder");
+				shown = true;
+				Platform.runLater(() -> popup.show(FXRouter.window));
+			}
+		} else {
+			shown = false;
 		}
 		try {
 			Thread.sleep(10000);
