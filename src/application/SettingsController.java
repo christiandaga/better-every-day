@@ -2,8 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import com.mongodb.client.model.Filters;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
