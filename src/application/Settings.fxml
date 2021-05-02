@@ -19,7 +19,7 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="125.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0">
               <items>
                 <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
