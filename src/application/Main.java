@@ -41,6 +41,7 @@ public class Main extends Application {
 		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController());
 		FXRouter.when("profile", "ProfileScreen.fxml", new ProfileController());
 		FXRouter.when("createHabit", "CreateHabit.fxml", new CreateHabitController());
+		FXRouter.when("editHabit", "EditHabit.fxml", new EditHabitController());
 		FXRouter.when("settings", "Settings.fxml", new SettingsController());
 		
 		try {
