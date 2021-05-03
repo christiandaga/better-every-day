@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -26,7 +27,12 @@ public class CreateAccountController {
 	@FXML
 	private Button createAccount;
 	
-	// When the Create Account button is clicked, the Home Screen comes up.
+	// Taken username label.
+	@FXML
+	private Label takenUsername;
+	
+	// When the Create Account button is clicked, the Home Screen comes up. If the user tries to create an account with a username that's already
+	// taken, an error message will pop up.
 	@FXML 
 	protected void createAccount(ActionEvent event) throws IOException {
 		
@@ -40,5 +46,9 @@ public class CreateAccountController {
 			}
 		}
 		
+		else
+		{
+			takenUsername.setText("This username is already taken!");
+		}
 	}
 }

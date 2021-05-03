@@ -47,8 +47,14 @@ public class HomeScreenController implements Initializable {
 		// Check if a habit from the list has been selected
 		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
 
-		
 		FXRouter.goTo("editHabit", selectedHabit);
+	}
+	
+	// Logs the user out of their account when the Log Out button is clicked.
+	@FXML
+	protected void logOut() throws IOException {
+		Auth.logout();
+		FXRouter.goTo("login");
 	}
 
 	@Override
@@ -56,5 +62,4 @@ public class HomeScreenController implements Initializable {
 		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
 		habitList.getItems().addAll(habitDocs.stream().map((Document habit) -> habit.getString("name")).toArray());
 	}
-	
 }
