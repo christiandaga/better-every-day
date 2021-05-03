@@ -35,7 +35,20 @@ public class HomeScreenController implements Initializable {
 	
 	@FXML
 	protected void createHabit() throws IOException {
+		System.out.println("In createHabit");
 		FXRouter.goTo("createHabit");
+	}
+	
+	@FXML
+	protected void editHabit() throws IOException {
+		System.out.println("In editHabit");
+		String selectedHabit = " ";
+		
+		// Check if a habit from the list has been selected
+		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+
+		
+		FXRouter.goTo("editHabit", selectedHabit);
 	}
 
 	@Override

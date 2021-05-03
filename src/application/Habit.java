@@ -2,9 +2,6 @@ package application;
 
 import org.bson.Document;
 
-import java.util.LinkedList; 
-import java.util.ArrayList;
-
 
 public class Habit {
 	private String name; // Name of the habit. 

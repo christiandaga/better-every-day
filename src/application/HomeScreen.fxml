@@ -20,7 +20,7 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="125.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0">
               <items>
                 <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
@@ -49,14 +49,14 @@
                </VBox.margin>
             </AnchorPane>
             <ListView fx:id="habitList" prefHeight="279.0" prefWidth="500.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="228.0">
+            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="478.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="57.0" prefWidth="68.0" text="+">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Button>
-                  <Label prefHeight="67.0" prefWidth="180.0" text="Create new habit!">
+                  <Label prefHeight="65.0" prefWidth="180.0" text="Create new habit!">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -64,6 +64,11 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
+                  <Button mnemonicParsing="false" onAction="#editHabit" prefHeight="51.0" prefWidth="176.0" text="Edit Habit">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
