@@ -66,7 +66,7 @@
                           <items>
                             <MenuItem mnemonicParsing="false" text="Every day" />
                             <MenuItem mnemonicParsing="false" text="Once a week" />
-                              <MenuItem mnemonicParsing="false" text="Once a month" />
+                            <MenuItem mnemonicParsing="false" text="Once a month" />
                           </items>
                            <font>
                               <Font size="15.0" />
@@ -74,13 +74,13 @@
                         </MenuButton>
                         <HBox prefHeight="30.0" prefWidth="226.0" spacing="7.0">
                            <children>
-                              <Button mnemonicParsing="false" text="M" />
-                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="T" />
-                              <Button mnemonicParsing="false" text="W" />
-                              <Button mnemonicParsing="false" text="T" />
-                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="F" />
-                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
-                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
+                              <Button fx:id="m" onAction="#m" mnemonicParsing="false" text="M" />
+                              <Button fx:id="t" onAction="#t" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="T" />
+                              <Button fx:id="w" onAction="#w" mnemonicParsing="false" text="W" />
+                              <Button fx:id="th" onAction="#th" mnemonicParsing="false" text="T" />
+                              <Button fx:id="f" onAction="#f" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="F" />
+                              <Button fx:id="sat" onAction="#sat" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
+                              <Button fx:id="sun" onAction="#sun" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
                            </children>
                         </HBox>
                         <GridPane alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="177.0">
@@ -95,21 +95,28 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#incHour" prefHeight="25.0" prefWidth="45.0" text="^" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#incMinute" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#decHour" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#decMinute" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button onAction="#hourUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" />
+                              <Button onAction="#minUp" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
+                              <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
+                              <Button onAction="#hourDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
+                              <Button onAction="#minDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="hourLbl" alignment="CENTER" contentDisplay="CENTER" text="07" GridPane.rowIndex="1">
+                              <Label fx:id="hourText" text="07" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="minuteLbl" text="00" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <Label fx:id="minuteText" text="00" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ampmText" text="AM" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>

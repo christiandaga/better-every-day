@@ -16,13 +16,19 @@ public final class RemindersManager {
 		t = new Timer();
 		reminders = new ArrayList<Reminder>();
 		Db.db.findMany("reminders", Filters.eq("username", Auth.currentUser.getUsername())).forEach((Document reminder) -> reminders.add(new Reminder(reminder)));
-		reminders.forEach((Reminder reminder) -> t.scheduleAtFixedRate(reminder, 0, 5000));
+		reminders.forEach((Reminder reminder) -> t.scheduleAtFixedRate(reminder, 0, 10000));
 	}
 	
 	public static void addReminder(Reminder reminder) {
 		Db.db.addItemToDB("reminders", reminder.getDocument().append("username", Auth.currentUser.getUsername()));
 		reminders.add(reminder);
-		t.scheduleAtFixedRate(reminder, 0, 5000);
+		t.scheduleAtFixedRate(reminder, 0, 10000);
+	}
+
+	public static void addReminders(String name, ArrayList<Integer> days, int hour, int minute) {
+		for (int day : days) {
+			addReminder(new Reminder(name, day, hour, minute));
+		}
 	}
 	
 	public static void stop() {
