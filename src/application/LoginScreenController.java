@@ -10,12 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginScreenController {
-	
-	/**
-	@FXML
-	ListView<String> list;
-	*/
-	
+
 	// Username field.
 	@FXML
 	private TextField username;
@@ -41,45 +36,18 @@ public class LoginScreenController {
 	protected void register(ActionEvent event) throws IOException {
 		
 		FXRouter.goTo("register");
-		
-		// ExampleMain exampleMain = new ExampleMain();
-		// exampleMain.changeScene("CreateAccountScreen.fxml");
 	}
 	
-	/**
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		ObservableList<String> items = FXCollections.observableArrayList();
-		list.setItems(items);
-		
-		Document u = Db.db.findOne("users", Filters.eq("username", FXRouter.getData()));
-		if (u != null) {
-			User user = new User(u);
-			items.add(user.getUsername());
-			items.add(user.getEmail());
-			items.add(String.valueOf(user.getUserLevel()));
-		} else {
-			items.add("No Data");
-		}
-		
-	}
-	*/
-	
-	// When the Login button is clicked, the Home Screen comes up.
+	// When the Login button is clicked, the Home Screen comes up. If the user enters a wrong username and/or password, an error message pops up.
 	@FXML
 	protected void login(ActionEvent event) throws IOException
 	{
-		
-		// ExampleMain exampleMain = new ExampleMain();
-		// exampleMain.changeScene("HomeScreen.fxml");
-		// ExampleMain exampleMain = new ExampleMain();
-		// exampleMain.changeScene("HomeScreen.fxml");
-		
 		if (Auth.login(username.getText(), password.getText())) {
 			FXRouter.goTo("home");
-		} else {
-			incorrectLogin.setText("Invalid username/password");
-		}
+		} 
 		
+		else {
+			incorrectLogin.setText("Invalid username and/or password.");
+		}
 	}
 }

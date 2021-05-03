@@ -33,11 +33,17 @@ public class ProfileController implements Initializable {
 	protected void goToSettings() throws IOException {
 		FXRouter.goTo("settings");
 	}
+	
+	// Logs the user out of their account when the Log Out button is clicked.
+	@FXML
+	protected void logOut() throws IOException {
+		Auth.logout();
+		FXRouter.goTo("login");
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		username.setText(Auth.currentUser.getUsername());
 		level.setText(String.valueOf(Auth.currentUser.getUserLevel()));
 	}
-	
 }

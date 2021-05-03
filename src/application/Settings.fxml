@@ -19,11 +19,12 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="125.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
                 <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="70.0" text="LOG OUT" />
               </items>
                <padding>
                   <Insets left="30.0" top="30.0" />
@@ -79,12 +80,12 @@
                   <Insets />
                </VBox.margin>
             </GridPane>
-            <Button mnemonicParsing="false" text="Delete Account" onAction="#deleteAccount">
+            <Button mnemonicParsing="false" onAction="#deleteAccount" text="Delete Account">
                <VBox.margin>
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Save" onAction="#editProfile">
+            <Button mnemonicParsing="false" onAction="#editProfile" text="Save">
                <VBox.margin>
                   <Insets left="425.0" />
                </VBox.margin>
