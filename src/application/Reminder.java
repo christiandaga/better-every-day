@@ -8,8 +8,12 @@ import org.bson.Document;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Popup;
 
 public class Reminder extends TimerTask {
@@ -45,14 +49,20 @@ public class Reminder extends TimerTask {
 	private void createPopup() {
 		shown = false;
 		
+		GridPane pane = new GridPane();
 		Label label = new Label(name + " Reminder!");
 		Button button = new Button("Close");
 		popup = new Popup();
-		label.setStyle(" -fx-background-color: white;");
-		label.setMinWidth(100);
-		label.setMinHeight(150);
-		popup.getContent().add(label);
-		popup.getContent().add(button);
+
+		pane.setAlignment(Pos.CENTER);
+		pane.setHgap(10);
+		pane.setVgap(10);
+		pane.setPadding(new Insets(25, 25, 25, 25));
+		pane.setStyle(" -fx-background-color: white;");
+		pane.add(label, 0, 1);
+		pane.add(button, 0, 2);
+		
+		popup.getContent().add(pane);
 		
 		EventHandler<ActionEvent> event = 
 				new EventHandler<ActionEvent>() {

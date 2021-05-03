@@ -96,7 +96,7 @@
                            <children>
                               <Button onAction="#hourUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" />
                               <Button onAction="#minUp" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
-                              <Button onAction="#ampmUp" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
+                              <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
                               <Button onAction="#hourDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
                               <Button onAction="#minDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                               <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2" />
