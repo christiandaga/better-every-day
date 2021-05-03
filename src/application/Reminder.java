@@ -84,6 +84,7 @@ public class Reminder extends TimerTask {
 	@Override
 	public void run() {
 		date = new Date();
+		System.out.println("Checking for " + name + " reminder...");
 		if (date.getDay() == day && date.getHours() == hour && date.getMinutes() == minute) {
 			if (!shown) {
 				System.out.println(name + " reminder");
@@ -93,11 +94,11 @@ public class Reminder extends TimerTask {
 		} else {
 			shown = false;
 		}
-		try {
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(10000);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 

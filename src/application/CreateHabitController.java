@@ -136,6 +136,12 @@ public class CreateHabitController implements Initializable {
 	@FXML
 	protected void sun() { selectDay(0); }
 	
+	private String addZero(int time) {
+		String newText = String.valueOf(time);
+		if (newText.length() == 1) newText = "0" + String.valueOf(time);
+		return newText;
+	}
+	
 	@FXML
 	protected void hourUp() {
 		int newHour = getHour() + 1;
@@ -143,7 +149,7 @@ public class CreateHabitController implements Initializable {
 			newHour -= 12;
 		}
 		if (newHour == 12) ampmSwitch();
-		hourText.setText(String.valueOf(newHour));
+		hourText.setText(addZero(newHour));
 	}
 	@FXML
 	protected void minUp() { 
@@ -152,14 +158,12 @@ public class CreateHabitController implements Initializable {
 			newMin = 0;
 			hourUp();
 		}
-		String newMinText = String.valueOf(newMin);
-		if (newMinText.length() == 1) newMinText = "0" + String.valueOf(newMin);
-		minuteText.setText(newMinText);
+		minuteText.setText(addZero(newMin));
 	}
 	@FXML
 	protected void ampmSwitch() {
-		if(ampmText.getText().equals("am")) ampmText.setText("pm");
-		else ampmText.setText("am");
+		if(ampmText.getText().equals("AM")) ampmText.setText("PM");
+		else ampmText.setText("AM");
 	}
 	@FXML
 	protected void hourDown() { 
@@ -168,7 +172,7 @@ public class CreateHabitController implements Initializable {
 			newHour += 12;
 		}
 		if (newHour == 11) ampmSwitch();
-		hourText.setText(String.valueOf(newHour));
+		hourText.setText(addZero(newHour));
 	}
 	@FXML
 	protected void minDown() {
@@ -177,9 +181,7 @@ public class CreateHabitController implements Initializable {
 			newMin = 59;
 			hourDown();
 		}
-		String newMinText = String.valueOf(newMin);
-		if (newMinText.length() == 1) newMinText = "0" + String.valueOf(newMin);
-		minuteText.setText(newMinText);
+		minuteText.setText(addZero(newMin));
 	}
 
 	
@@ -199,7 +201,7 @@ public class CreateHabitController implements Initializable {
 		
 		int hour = getHour();
 		if (hour == 12) hour = 0;
-		if (ampmText.getText().equals("pm")) hour += 12;
+		if (ampmText.getText().equals("PM")) hour += 12;
 		RemindersManager.addReminders(name.getText(), days, hour, getMin());
 		
 		FXRouter.goTo("home");

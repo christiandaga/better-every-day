@@ -2,7 +2,9 @@ package application;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Main extends Application {
 	
@@ -36,6 +38,15 @@ public class Main extends Application {
 //		primaryStage.show();*/
 //		
 		primaryStage.setResizable(false);
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent e) {
+				Platform.exit();
+				System.exit(0);
+			}
+		});
+		
+		
 		FXRouter.bind(this, primaryStage, new DefaultController(), "Better Every Day");
 		FXRouter.when("login", "LoginScreen.fxml", new LoginScreenController());
 		FXRouter.when("register", "CreateAccountScreen.fxml", new CreateAccountController());
@@ -51,11 +62,6 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	@Override
-	public void stop() {
-		RemindersManager.stop();
 	}
 	
 	/**
