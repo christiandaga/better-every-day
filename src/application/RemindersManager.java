@@ -24,6 +24,12 @@ public final class RemindersManager {
 		reminders.add(reminder);
 		t.scheduleAtFixedRate(reminder, 0, 5000);
 	}
+
+	public static void addReminders(String name, ArrayList<Integer> days, int hour, int minute) {
+		for (int day : days) {
+			addReminder(new Reminder(name, day, hour, minute));
+		}
+	}
 	
 	public static void stop() {
 		t.cancel();
