@@ -58,7 +58,7 @@ public class Reminder extends TimerTask {
 		pane.setHgap(10);
 		pane.setVgap(10);
 		pane.setPadding(new Insets(25, 25, 25, 25));
-		pane.setStyle(" -fx-background-color: white;");
+		pane.setStyle(" -fx-background-color: silver;");
 		pane.add(label, 0, 1);
 		pane.add(button, 0, 2);
 		
@@ -84,7 +84,6 @@ public class Reminder extends TimerTask {
 	@Override
 	public void run() {
 		date = new Date();
-		System.out.println("Checking for " + name + " reminder...");
 		if (date.getDay() == day && date.getHours() == hour && date.getMinutes() == minute) {
 			if (!shown) {
 				System.out.println(name + " reminder");
