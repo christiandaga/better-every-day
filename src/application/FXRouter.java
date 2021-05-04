@@ -246,6 +246,9 @@ public final class FXRouter {
         // Parent resource = FXMLLoader.load(new Object() { }.getClass().getResource(scenePath));
         FXMLLoader loader = new FXMLLoader(new Object() { }.getClass().getResource(scenePath));
         loader.setController(route.controller);
+        
+        // route.controller.initData(route.data);
+        
         Parent resource = loader.load();
 
         // set window title from route settings or default setting

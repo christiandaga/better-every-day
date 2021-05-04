@@ -16,6 +16,8 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.userLevel = 0;
+		
 	}
 	
 	// Constructor sets username, password, and email from Document
