@@ -40,7 +40,7 @@
          <children>
             <AnchorPane prefHeight="70.0" prefWidth="510.0">
                <children>
-                  <Label alignment="CENTER" layoutX="182.0" layoutY="14.0" prefHeight="32.0" prefWidth="106.0" text="Welcome!">
+                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="58.0" layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="300.0" text="Welcome!">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -55,20 +55,20 @@
             <ListView fx:id="habitList" prefHeight="279.0" prefWidth="500.0" />
             <HBox alignment="CENTER" prefHeight="72.0" prefWidth="478.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="57.0" prefWidth="68.0" text="+">
+                  <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="49.0" prefWidth="138.0" text="Create New Habit">
                      <font>
-                        <Font size="23.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
-                  <Label prefHeight="65.0" prefWidth="180.0" text="Create new habit!">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
+                  <Button mnemonicParsing="false" onAction="#editHabit" prefHeight="51.0" prefWidth="125.0" text="Edit Habit">
                      <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="30.0" />
                      </HBox.margin>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#editHabit" prefHeight="51.0" prefWidth="176.0" text="Edit Habit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#markDone" prefHeight="49.0" prefWidth="126.0" text="Mark Done!">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>

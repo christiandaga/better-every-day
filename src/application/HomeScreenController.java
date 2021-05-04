@@ -8,15 +8,21 @@ import java.util.ResourceBundle;
 import org.bson.Document;
 
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class HomeScreenController implements Initializable {
 
 	@FXML
 	private ListView habitList;
+	
+	@FXML
+	private Label welcomeLabel;
+	
 	
 	@FXML
 	protected void goHome() throws IOException {
@@ -40,6 +46,24 @@ public class HomeScreenController implements Initializable {
 	}
 	
 	@FXML
+	protected void markDone() throws IOException {
+		System.out.println(" In markDone");
+		String selectedHabit = " ";
+		
+		// Check if a habit from the list has been selected
+		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		
+		int newUserLevel = Auth.currentUser.getUserLevel() + 1;
+		Auth.currentUser.setUserLevel(newUserLevel);
+		
+		// Update the users collection with new level - TBD
+		
+		Db.db.updateItem("users", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("userLevel", newUserLevel));
+
+	}
+	
+	
+	@FXML
 	protected void editHabit() throws IOException {
 		System.out.println("In editHabit");
 		String selectedHabit = " ";
@@ -59,6 +83,8 @@ public class HomeScreenController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		
+		// welcomeLabel.setText("Welcome " + Auth.currentUser.getUsername() + " !");
 		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
 		habitList.getItems().addAll(habitDocs.stream().map((Document habit) -> habit.getString("name")).toArray());
 	}

@@ -196,7 +196,7 @@ public class CreateHabitController implements Initializable {
 	// Adds habit to user's list of habits.
 	@FXML
 	protected void createHabit() throws IOException {
-		Habit habit = new Habit(name.getText(), 100);
+		Habit habit = new Habit(name.getText(), 1);  // 1 point for each habit
 		Db.db.addItemToDB("habits", habit.getDocument().append("username", Auth.currentUser.getUsername()));
 		
 		int hour = getHour();
