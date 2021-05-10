@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
@@ -25,6 +26,7 @@ import javafx.scene.paint.Color;
 public class CreateHabitController implements Initializable {
 	
 	private ArrayList<Integer> days;
+	private String catSelected;
 //	private Border selected = new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));
 	
 	@FXML
@@ -35,6 +37,7 @@ public class CreateHabitController implements Initializable {
 	private Label minuteText;
 	@FXML
 	private Label ampmText;
+	
 	
 //	@FXML
 //	private Button m;
@@ -196,8 +199,12 @@ public class CreateHabitController implements Initializable {
 	// Adds habit to user's list of habits.
 	@FXML
 	protected void createHabit() throws IOException {
-		Habit habit = new Habit(name.getText(), 1);  // 1 point for each habit
+		Habit habit = new Habit(name.getText(), 1, catSelected);  // 1 point for each habit
 		Db.db.addItemToDB("habits", habit.getDocument().append("username", Auth.currentUser.getUsername()));
+		
+		if (Db.db.findOne("categories", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", catSelected))) == null) {
+			Db.db.addItemToDB("categories", new Category(catSelected).getDocument().append("username", Auth.currentUser.getUsername()));
+		}
 		
 		int hour = getHour();
 		if (hour == 12) hour = 0;
@@ -216,6 +223,8 @@ public class CreateHabitController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		days = new ArrayList<Integer>();
+		catSelected = "custom"; // change later
+		
 	}
 	
 }

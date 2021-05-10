@@ -45,6 +45,8 @@ public class HomeScreenController implements Initializable {
 		FXRouter.goTo("createHabit");
 	}
 	
+	// temp
+	Habit testHabit = new Habit("testHabit", 1, "custom");;
 	@FXML
 	protected void markDone() throws IOException {
 		System.out.println(" In markDone");
@@ -60,8 +62,10 @@ public class HomeScreenController implements Initializable {
 		
 		Db.db.updateItem("users", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("userLevel", newUserLevel));
 
+		// temp
+		testHabit.setName(selectedHabit);
+		testHabit.completeDay();
 	}
-	
 	
 	@FXML
 	protected void editHabit() throws IOException {
