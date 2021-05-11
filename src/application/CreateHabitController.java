@@ -77,6 +77,7 @@ public class CreateHabitController implements Initializable {
 	protected void logout() throws IOException {
 		Auth.logout();
 		FXRouter.goTo("login");
+	}
 
 	@FXML
 	protected void slctDiet() {
