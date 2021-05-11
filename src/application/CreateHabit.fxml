@@ -20,15 +20,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="125.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0">
+            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" style="-fx-background-color: #FFE4B5;">
               <items>
-                <Button mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
-                  <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
-                  <Button mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
+                  <VBox spacing="30.0">
+                     <children>
+                      <Button mnemonicParsing="false" onAction="#goHome" prefHeight="53.0" prefWidth="95.0" text="HOME">
+                           <font>
+                              <Font name="Ebrima" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="53.0" prefWidth="95.0" text="PROFILE">
+                           <font>
+                              <Font name="Ebrima" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#goToSettings" prefHeight="53.0" prefWidth="95.0" text="SETTINGS">
+                           <font>
+                              <Font name="Ebrima" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="53.0" prefWidth="95.0" text="LOG OUT">
+                           <font>
+                              <Font name="Ebrima" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="-12.0" top="15.0" />
+                     </padding>
+                  </VBox>
               </items>
                <padding>
                   <Insets left="30.0" top="30.0" />
@@ -40,9 +64,9 @@
          <children>
             <AnchorPane prefHeight="70.0" prefWidth="510.0">
                <children>
-                  <Label layoutX="163.0" layoutY="19.0" text="Create a habit!">
+                  <Label layoutX="161.0" layoutY="15.0" prefHeight="32.0" prefWidth="188.0" text="Create a habit!">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Ebrima" size="28.0" />
                      </font>
                   </Label>
                   <Separator layoutX="40.0" layoutY="55.0" prefWidth="430.0" />
@@ -54,12 +78,7 @@
                      <children>
                         <VBox prefHeight="20.0" prefWidth="100.0">
                            <children>
-                              <TextField fx:id="name" />
-                              <Label text="Title of Habit">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
+                              <TextField fx:id="name" promptText="Habit Name" />
                            </children>
                         </VBox>
                         <MenuButton fx:id="frequencyLbl" mnemonicParsing="false" text="Frequency">
@@ -74,20 +93,21 @@
                         </MenuButton>
                         <HBox prefHeight="30.0" prefWidth="226.0" spacing="7.0">
                            <children>
-                              <Button fx:id="m" onAction="#m" mnemonicParsing="false" text="M" />
-                              <Button fx:id="t" onAction="#t" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="T" />
-                              <Button fx:id="w" onAction="#w" mnemonicParsing="false" text="W" />
-                              <Button fx:id="th" onAction="#th" mnemonicParsing="false" text="T" />
-                              <Button fx:id="f" onAction="#f" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="F" />
-                              <Button fx:id="sat" onAction="#sat" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
-                              <Button fx:id="sun" onAction="#sun" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="S" />
+                              <Button fx:id="m" mnemonicParsing="false" onAction="#m" text="M" />
+                              <Button fx:id="t" mnemonicParsing="false" onAction="#t" prefHeight="10.0" prefWidth="10.0" text="T" />
+                              <Button fx:id="w" mnemonicParsing="false" onAction="#w" text="W" />
+                              <Button fx:id="th" mnemonicParsing="false" onAction="#th" text="T" />
+                              <Button fx:id="f" mnemonicParsing="false" onAction="#f" prefHeight="10.0" prefWidth="10.0" text="F" />
+                              <Button fx:id="sat" mnemonicParsing="false" onAction="#sat" prefHeight="10.0" prefWidth="10.0" text="S" />
+                              <Button fx:id="sun" mnemonicParsing="false" onAction="#sun" prefHeight="10.0" prefWidth="10.0" text="S" />
                            </children>
                         </HBox>
-                        <GridPane alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="177.0">
+                        <GridPane alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="242.0">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="55.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="10.0" prefWidth="10.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="53.0" />
+                              <ColumnConstraints />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -95,12 +115,12 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button onAction="#hourUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" />
-                              <Button onAction="#minUp" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
-                              <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
-                              <Button onAction="#hourDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
-                              <Button onAction="#minDown" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Button onAction="#ampmSwitch" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#hourUp" prefHeight="25.0" prefWidth="45.0" text="^" />
+                              <Button mnemonicParsing="false" onAction="#minUp" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#ampmSwitch" prefHeight="25.0" prefWidth="45.0" text="^" GridPane.columnIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#hourDown" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#minDown" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#ampmSwitch" prefHeight="25.0" prefWidth="45.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
@@ -123,10 +143,13 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createHabit" text="CREATE HABIT" textAlignment="CENTER">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createHabit" prefHeight="44.0" prefWidth="158.0" text="CREATE HABIT" textAlignment="CENTER">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="Ebrima" size="20.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="45.0" top="20.0" />
+                           </VBox.margin>
                         </Button>
                      </children>
                      <padding>
@@ -151,7 +174,7 @@
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="100.0" prefWidth="188.0">
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -160,7 +183,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <MenuButton accessibleRole="IMAGE_VIEW" alignment="CENTER" maxHeight="20.0" maxWidth="20.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" text="icon">
+                                    <MenuButton accessibleRole="IMAGE_VIEW" alignment="CENTER" maxHeight="20.0" maxWidth="20.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" text="Icon">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Diet">
                                              <graphic>
@@ -207,15 +230,18 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ColorPicker />
+                                    <ColorPicker promptText="Color" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" onAction="#cancel" text="CANCEL">
+                        <Button mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="158.0" text="CANCEL">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="Ebrima" size="20.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="67.0" />
+                           </VBox.margin>
                         </Button>
                      </children>
                      <padding>

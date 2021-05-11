@@ -51,19 +51,29 @@ public class CreateHabitController implements Initializable {
 //	@FXML
 //	private Button sun;
 	
+	// Goes to the Home Screen.
 	@FXML
 	protected void goHome() throws IOException {
 		FXRouter.goTo("home");
 	}
 	
+	// Goes to the Profile Screen.
 	@FXML
 	protected void goToProfile() throws IOException {
 		FXRouter.goTo("profile");
 	}
 	
+	// Goes to the Settings Screen.
 	@FXML
 	protected void goToSettings() throws IOException {
 		FXRouter.goTo("settings");
+	}
+	
+	// Logs the user out of their account and goes back to the Login Screen.
+	@FXML
+	protected void logout() throws IOException {
+		Auth.logout();
+		FXRouter.goTo("login");
 	}
 	
 	void selectDay(int day) {
@@ -217,5 +227,4 @@ public class CreateHabitController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		days = new ArrayList<Integer>();
 	}
-	
 }
