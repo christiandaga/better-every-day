@@ -69,6 +69,23 @@ public class CreateHabitController implements Initializable {
 		FXRouter.goTo("settings");
 	}
 	
+	@FXML
+	protected void slctDiet() {
+		catSelected = "diet";
+	}
+	@FXML
+	protected void slctEducation() {
+		catSelected = "education";
+	}
+	@FXML
+	protected void slctExercise() {
+		catSelected = "exercise";
+	}
+	@FXML
+	protected void slctCustom() {
+		catSelected = "custom";
+	}
+	
 	void selectDay(int day) {
 		if (days.contains(day)) {
 			days.remove(day);

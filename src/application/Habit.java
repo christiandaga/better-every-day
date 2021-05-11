@@ -72,6 +72,7 @@ public class Habit {
 	public void completeDay() {
 		daysCompleted++;
 		// idk if its best to do it here
+		Db.db.updateItem("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", name)), Updates.inc("daysCompleted", 1));
 		if (daysCompleted % 5 == 0)
 			Db.db.updateItem("categories", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", categoryName)), Updates.inc("achievements", 1));
 	}

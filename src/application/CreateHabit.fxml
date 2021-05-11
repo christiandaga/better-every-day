@@ -137,10 +137,10 @@
                      <children>
                         <MenuButton fx:id="categoryLbl" mnemonicParsing="false" text="Category">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Diet" />
-                              <MenuItem mnemonicParsing="false" text="Exercise" />
-                              <MenuItem mnemonicParsing="false" text="Education" />
-                              <MenuItem mnemonicParsing="false" text="Custom" />
+                              <MenuItem mnemonicParsing="false" onAction="#slctDiet" text="Diet" />
+                              <MenuItem mnemonicParsing="false" onAction="#slctExercise" text="Exercise" />
+                              <MenuItem mnemonicParsing="false" onAction="#slctEducation" text="Education" />
+                              <MenuItem mnemonicParsing="false" onAction="#slctCustom" text="Custom" />
                            </items>
                            <font>
                               <Font size="15.0" />
