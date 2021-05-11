@@ -60,8 +60,10 @@ public class HomeScreenController implements Initializable {
 		
 		Db.db.updateItem("users", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("userLevel", newUserLevel));
 
+		// temp
+		Habit tempHabit = new Habit(Db.db.findOne("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", selectedHabit))));
+		tempHabit.completeDay();
 	}
-	
 	
 	@FXML
 	protected void editHabit() throws IOException {
