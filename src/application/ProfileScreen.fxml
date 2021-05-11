@@ -103,12 +103,12 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="diet3" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="diet4" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -136,12 +136,12 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom3" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom4" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -169,12 +169,12 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer3" fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer4" fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -200,17 +200,17 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="182.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="educ2" fitHeight="100.0" fitWidth="150.0" layoutX="182.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="educ3" fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="educ2" fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="educ4" fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>

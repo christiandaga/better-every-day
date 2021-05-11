@@ -34,17 +34,33 @@ public class ProfileController implements Initializable {
 	@FXML
 	private ImageView diet2;
 	@FXML
+	private ImageView diet3;
+	@FXML
+	private ImageView diet4;
+	@FXML
 	private ImageView custom1;
 	@FXML
 	private ImageView custom2;
+	@FXML
+	private ImageView custom3;
+	@FXML
+	private ImageView custom4;
 	@FXML
 	private ImageView exer1;
 	@FXML
 	private ImageView exer2;
 	@FXML
+	private ImageView exer3;
+	@FXML
+	private ImageView exer4;
+	@FXML
 	private ImageView educ1;
 	@FXML
 	private ImageView educ2;
+	@FXML
+	private ImageView educ3;
+	@FXML
+	private ImageView educ4;
 
 	@FXML
 	protected void goHome() throws IOException {
@@ -81,32 +97,44 @@ public class ProfileController implements Initializable {
 				Category category = new Category(cat);
 				switch(category.getName()) {
 				case "diet":
-					if (category.getAchievements() >= 2) {
+					if (category.getAchievements() >= 1)
 						diet1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 2)
 						diet2.setImage(badgeCompleteImg);
-					} else if (category.getAchievements() == 1)
-						diet1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 3)
+						diet3.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 4)
+						diet4.setImage(badgeCompleteImg);
 					break;
 				case "custom":
-					if (category.getAchievements() >= 2) {
+					if (category.getAchievements() >= 1)
 						custom1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 2)
 						custom2.setImage(badgeCompleteImg);
-					} else if (category.getAchievements() == 1)
-						custom1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 3)
+						custom3.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 4)
+						custom4.setImage(badgeCompleteImg);
 					break;
 				case "exercise":
-					if (category.getAchievements() >= 2) {
+					if (category.getAchievements() >= 1)
 						exer1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 2)
 						exer2.setImage(badgeCompleteImg);
-					} else if (category.getAchievements() == 1)
-						exer1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 3)
+						exer3.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 4)
+						exer4.setImage(badgeCompleteImg);
 					break;
 				case "education":
-					if (category.getAchievements() >= 2) {
+					if (category.getAchievements() >= 1)
 						educ1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 2)
 						educ2.setImage(badgeCompleteImg);
-					} else if (category.getAchievements() == 1)
-						educ1.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 3)
+						educ3.setImage(badgeCompleteImg);
+					if (category.getAchievements() >= 4)
+						educ4.setImage(badgeCompleteImg);
 					break;
 				}
 			}
