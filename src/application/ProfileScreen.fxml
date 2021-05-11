@@ -15,54 +15,70 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="650.0" prefWidth="1025.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="125.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="656.0" prefWidth="185.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
-                <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="70.0" text="LOG OUT" />
+                  <VBox spacing="40.0">
+                     <children>
+                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0" text="HOME">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0" text="PROFILE">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0" text="SETTINGS">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0" text="LOG OUT">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                     </children>
+                  </VBox>
               </items>
                <padding>
-                  <Insets left="30.0" top="30.0" />
+                  <Insets left="30.0" top="100.0" />
                </padding>
             </ToolBar>
          </children>
       </AnchorPane>
-      <VBox prefHeight="400.0" prefWidth="510.0">
+      <VBox prefHeight="650.0" prefWidth="840.0">
          <children>
-            <AnchorPane prefHeight="150.0" prefWidth="510.0">
+            <AnchorPane prefHeight="150.0" prefWidth="495.0">
                <children>
-                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="57.0" layoutY="60.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="58.0" text="level" textFill="WHITE">
+                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="99.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="55.0" text="Level" textFill="WHITE">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="27.0" />
                      </font>
                   </Label>
-                  <Label fx:id="username" layoutX="151.0" layoutY="25.0" text="username">
+                  <Label fx:id="username" layoutX="278.0" layoutY="25.0" text="Username">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
-                  <Label fx:id="daysOnApp" layoutX="330.0" layoutY="25.0" text="# days on app">
+                  <Label fx:id="daysOnApp" layoutX="557.0" layoutY="25.0" text="# Days on app">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
-                  <ProgressBar layoutX="151.0" layoutY="84.0" prefHeight="18.0" prefWidth="330.0" progress="0.0" />
-                  <Label layoutX="151.0" layoutY="106.0" text="progress bar">
+                  <ProgressBar layoutX="278.0" layoutY="80.0" prefHeight="23.0" prefWidth="479.0" progress="0.0" />
+                  <Label layoutX="278.0" layoutY="107.0" text="Progress Bar">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="22.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <ScrollPane prefHeight="250.0" prefWidth="510.0">
+            <ScrollPane prefHeight="508.0" prefWidth="819.0">
                <content>
-                  <TilePane prefHeight="250.0" prefWidth="510.0">
+                  <TilePane prefHeight="800.0" prefWidth="889.0" style="-fx-background-color: #FDF5E6;">
                      <children>
                         <VBox alignment="CENTER">
                            <children>
@@ -71,7 +87,10 @@
                                     <Image url="@../resources/diet-category.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" text="Diet" />
+                              <Label alignment="CENTER" prefWidth="37.0" text="Diet">
+                                 <font>
+                                    <Font name="Ebrima" size="20.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="diet1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -84,14 +103,27 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="173.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/custom-category.png" />
+                                    <Image url="@../resources/exercise-category.png" />
                                  </image>
                               </ImageView>
-                              <Label text="Custom " />
+                              <Label prefWidth="85.0" text="Exercise">
+                                 <font>
+                                    <Font name="Ebrima" size="20.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="custom1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -104,14 +136,27 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/exercise-category.png" />
+                                    <Image url="@../resources/custom-category.png" />
                                  </image>
                               </ImageView>
-                              <Label text="Exercise" />
+                              <Label text="Custom ">
+                                 <font>
+                                    <Font name="Ebrima" size="20.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="exer1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -124,6 +169,16 @@
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -131,14 +186,32 @@
                                     <Image url="@../resources/education-category.png" />
                                  </image>
                               </ImageView>
-                              <Label text="Education" />
+                              <Label text="Education">
+                                 <font>
+                                    <Font name="Ebrima" size="20.0" />
+                                 </font></Label>
                            </children>
+                           <TilePane.margin>
+                              <Insets top="-25.0" />
+                           </TilePane.margin>
                         </VBox>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="632.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                         <ImageView fx:id="educ1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="182.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/badge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
                         <ImageView fx:id="educ2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
@@ -147,6 +220,9 @@
                      </children>
                   </TilePane>
                </content>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </ScrollPane>
          </children>
       </VBox>

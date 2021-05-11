@@ -16,64 +16,100 @@
 <!-- <AnchorPane xmlns:fx="http://javafx.com/fxml/1">
 </AnchorPane> -->
 
-<FlowPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane prefHeight="650.0" prefWidth="1040.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="125.0">
+      <AnchorPane prefHeight="400.0" prefWidth="130.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="400.0" prefWidth="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="0.0">
               <items>
-                <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="70.0" text="HOME" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="70.0" text="PROFILE" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="70.0" text="SETTINGS" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="70.0" text="LOG OUT" />
+                  <VBox prefHeight="401.0" prefWidth="150.0" spacing="40.0">
+                     <children>
+                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0" text="HOME">
+                           <font>
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0" text="PROFILE">
+                           <font>
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0" text="SETTINGS">
+                           <font>
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0" text="LOG OUT">
+                           <font>
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
+                  </VBox>
               </items>
                <padding>
-                  <Insets left="30.0" top="50.0" />
+                  <Insets left="30.0" top="100.0" />
                </padding>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </ToolBar>
          </children>
+         <FlowPane.margin>
+            <Insets />
+         </FlowPane.margin>
       </AnchorPane>
-      <VBox fillWidth="false" prefHeight="400.0" prefWidth="301.0">
+      <VBox fillWidth="false" prefHeight="548.0" prefWidth="889.0">
          <children>
-            <AnchorPane prefHeight="70.0" prefWidth="510.0">
+            <AnchorPane prefHeight="75.0" prefWidth="785.0">
                <children>
-                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="58.0" layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="300.0" text="Welcome!">
+                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="135.0" layoutY="16.0" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="300.0" text="Welcome!">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Ebrima" size="32.0" />
                      </font>
                   </Label>
-                  <ProgressBar layoutX="331.0" layoutY="26.0" prefHeight="18.0" prefWidth="165.0" progress="0.0" />
-                  <Separator layoutX="14.0" layoutY="51.0" prefHeight="7.0" prefWidth="470.0" />
+                  <ProgressBar layoutX="500.0" layoutY="24.0" prefHeight="30.0" prefWidth="245.0" progress="0.0" />
+                  <Separator layoutX="-55.0" layoutY="70.0" prefHeight="23.0" prefWidth="800.0" />
                </children>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="125.0" />
                </VBox.margin>
             </AnchorPane>
-            <ListView fx:id="habitList" prefHeight="279.0" prefWidth="500.0" />
-            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="478.0">
+            <ListView fx:id="habitList" prefHeight="377.0" prefWidth="826.0">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="50.0" top="25.0" />
+               </VBox.margin>
+            </ListView>
+            <HBox alignment="CENTER" prefHeight="91.0" prefWidth="978.0" spacing="50.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="49.0" prefWidth="138.0" text="Create New Habit">
+                  <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="51.0" prefWidth="178.0" text="Create New Habit">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Ebrima" size="19.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#editHabit" prefHeight="51.0" prefWidth="125.0" text="Edit Habit">
+                  <Button mnemonicParsing="false" onAction="#editHabit" prefHeight="51.0" prefWidth="178.0" text="Edit Habit">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#markDone" prefHeight="49.0" prefWidth="126.0" text="Mark Done!">
+                  <Button mnemonicParsing="false" onAction="#markDone" prefHeight="51.0" prefWidth="178.0" text="Mark Done!">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>
