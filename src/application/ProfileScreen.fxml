@@ -93,12 +93,12 @@
                                  </font></Label>
                            </children>
                         </VBox>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="diet1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="diet2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -126,12 +126,12 @@
                                  </font></Label>
                            </children>
                         </VBox>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -159,12 +159,12 @@
                                  </font></Label>
                            </children>
                         </VBox>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -196,6 +196,7 @@
                            </TilePane.margin>
                         </VBox>
                         <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="632.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="educ1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -211,6 +212,7 @@
                            </image>
                         </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="educ2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
