@@ -27,6 +27,10 @@ public class CreateAccountController {
 	@FXML
 	private Button createAccount;
 	
+	// Button to return to login screen.
+	@FXML
+	private Button goBack;
+	
 	// Taken username label.
 	@FXML
 	private Label takenUsername;
@@ -50,5 +54,10 @@ public class CreateAccountController {
 		{
 			takenUsername.setText("This username is already taken!");
 		}
+	}
+	
+	@FXML
+	protected void goBack(ActionEvent event) throws IOException {
+		FXRouter.goTo("login");
 	}
 }

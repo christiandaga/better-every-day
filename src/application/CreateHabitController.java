@@ -37,6 +37,10 @@ public class CreateHabitController implements Initializable {
 	private Label minuteText;
 	@FXML
 	private Label ampmText;
+	@FXML
+	private MenuButton categoryLbl;
+	@FXML
+	private Label daySelect;
 	
 	
 //	@FXML
@@ -78,21 +82,25 @@ public class CreateHabitController implements Initializable {
 		Auth.logout();
 		FXRouter.goTo("login");
 	}
-
+	
 	@FXML
 	protected void slctDiet() {
+		categoryLbl.setText("Diet");
 		catSelected = "diet";
 	}
 	@FXML
 	protected void slctEducation() {
+		categoryLbl.setText("Education");
 		catSelected = "education";
 	}
 	@FXML
 	protected void slctExercise() {
+		categoryLbl.setText("Exercise");
 		catSelected = "exercise";
 	}
 	@FXML
 	protected void slctCustom() {
+		categoryLbl.setText("Custom");
 		catSelected = "custom";
 	}
 	
@@ -152,19 +160,41 @@ public class CreateHabitController implements Initializable {
 	}
 	
 	@FXML
-	protected void m() { selectDay(1); }
+	protected void m() { 
+		selectDay(1); 
+		daySelect.setText("Day selected: Monday");
+	}
+	
 	@FXML
-	protected void t() { selectDay(2); }
+	protected void t() { 
+		selectDay(2); 
+		daySelect.setText("Day selected: Tuesday");
+		}
 	@FXML
-	protected void w() { selectDay(3); }
+	protected void w() { 
+		selectDay(3); 
+		daySelect.setText("Day selected: Wednesday");
+	}
 	@FXML
-	protected void th() { selectDay(4); }
+	protected void th() { 
+		selectDay(4); 
+		daySelect.setText("Day selected: Thursday");
+	}
 	@FXML
-	protected void f() { selectDay(5); }
+	protected void f() { 
+		selectDay(5); 
+		daySelect.setText("Day selected: Friday");
+	}
 	@FXML
-	protected void sat() { selectDay(6); }
+	protected void sat() { 
+		selectDay(6); 
+		daySelect.setText("Day selected: Saturday");
+	}
 	@FXML
-	protected void sun() { selectDay(0); }
+	protected void sun() { 
+		selectDay(0); 
+		daySelect.setText("Day selected: Sunday");
+	}
 	
 	private String addZero(int time) {
 		String newText = String.valueOf(time);

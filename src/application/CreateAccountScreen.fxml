@@ -45,6 +45,11 @@
                   <Font name="Monserrat" size="21.0" />
                </font>
             </Label>
+            <Button fx:id="goBack" layoutX="480.0" layoutY="457.0" mnemonicParsing="false" onAction="#goBack" text="Go back">
+               <font>
+                  <Font name="Monserrat" size="19.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>
