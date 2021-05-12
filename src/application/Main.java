@@ -11,8 +11,8 @@ public class Main extends Application {
 	// Widths and heights for the screens.
 	private static final double LargeWidth = 1025;
 	private static final double LargeHeight = 650;
-	private static final double SmallWidth = 640;
-	private static final double SmallHeight = 400;
+	private static final double SmallWidth = 500;
+	private static final double SmallHeight = 350;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
