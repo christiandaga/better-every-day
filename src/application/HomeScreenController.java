@@ -71,6 +71,27 @@ public class HomeScreenController implements Initializable {
 	}
 	
 	@FXML
+	protected void deleteHabit() throws IOException {
+		System.out.println(" In deleteHabit");
+		String selectedHabit = " ";
+		
+		// Check if a habit from the list has been selected
+		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		
+		
+		// Drop this habit from habits collection
+		Db.db.deleteItem("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", selectedHabit)));
+		
+		// habitList.getSelectionModel().clearSelection();
+		habitList.getItems().clear();
+		
+		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
+		habitList.getItems().addAll(habitDocs.stream().map((Document habit) -> habit.getString("name")).toArray());
+		
+		
+	}
+	
+	@FXML
 	protected void editHabit() throws IOException {
 		System.out.println("In editHabit");
 		String selectedHabit = " ";
