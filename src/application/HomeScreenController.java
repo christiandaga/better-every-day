@@ -56,7 +56,7 @@ public class HomeScreenController implements Initializable {
 		String selectedHabit = " ";
 		
 		// Check if a habit from the list has been selected
-		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		selectedHabit = getSelectedHabit();
 		
 		int newUserLevel = Auth.currentUser.getUserLevel() + 1;
 		Auth.currentUser.setUserLevel(newUserLevel);
@@ -76,19 +76,19 @@ public class HomeScreenController implements Initializable {
 		String selectedHabit = " ";
 		
 		// Check if a habit from the list has been selected
-		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		selectedHabit = getSelectedHabit();
 		
 		
 		// Drop this habit from habits collection
 		Db.db.deleteItem("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", selectedHabit)));
 		
+		// Deletes reminder and removes it from timer
+		RemindersManager.removeReminder(selectedHabit);
+		
 		// habitList.getSelectionModel().clearSelection();
 		habitList.getItems().clear();
 		
-		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
-		habitList.getItems().addAll(habitDocs.stream().map((Document habit) -> habit.getString("name")).toArray());
-		
-		
+		renderItemList();
 	}
 	
 	@FXML
@@ -97,7 +97,7 @@ public class HomeScreenController implements Initializable {
 		String selectedHabit = " ";
 		
 		// Check if a habit from the list has been selected
-		selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		selectedHabit = getSelectedHabit();
 
 		FXRouter.goTo("editHabit", selectedHabit);
 	}
@@ -109,6 +109,13 @@ public class HomeScreenController implements Initializable {
 		FXRouter.goTo("login");
 	}
 
+	private String getSelectedHabit() {
+		String selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
+		if (selectedHabit == null) selectedHabit = "";
+		String[] splitSelected = selectedHabit.split(" ");
+		return splitSelected[0];
+	}
+	
 	private String beautifyTime(Date dat) {
 		int hour = dat.getHours();
 		String minutes = String.valueOf(dat.getMinutes());
@@ -121,10 +128,7 @@ public class HomeScreenController implements Initializable {
 		return String.valueOf(hour) + minutes + "am";
 	}
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		
-		// welcomeLabel.setText("Welcome " + Auth.currentUser.getUsername() + " !");
+	private void renderItemList() {
 		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
 		
 		ArrayList<String> itemList = new ArrayList<String>();
@@ -147,5 +151,12 @@ public class HomeScreenController implements Initializable {
 				itemList.add(habit.getString("name"));
 		});
 		habitList.getItems().addAll(itemList);
+	}
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+		// welcomeLabel.setText("Welcome " + Auth.currentUser.getUsername() + " !");
+		renderItemList();
 	}
 }

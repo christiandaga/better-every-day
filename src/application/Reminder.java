@@ -74,6 +74,10 @@ public class Reminder extends TimerTask {
 		button.setOnAction(event);
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public Document getDocument() {
 		return new Document("name", name)
 				.append("day", day)

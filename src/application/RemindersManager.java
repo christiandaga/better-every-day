@@ -31,6 +31,15 @@ public final class RemindersManager {
 		}
 	}
 	
+	public static void removeReminder(String name) {
+		Db.db.deleteItem("reminders", Filters.eq("name", name));
+		for (Reminder reminder : reminders) {
+			if (reminder.getName().equals(name))
+				reminder.cancel();
+		}
+		t.purge();
+	}
+	
 	public static void stop() {
 		t.cancel();
 	}
