@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,57 +19,91 @@
 
 <HBox prefHeight="650.0" prefWidth="1025.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="125.0">
+      <AnchorPane prefHeight="400.0" prefWidth="130.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="650.0" prefWidth="193.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="650.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="0.0">
               <items>
-                  <VBox spacing="40.0">
+                  <VBox prefHeight="401.0" prefWidth="150.0" spacing="40.0">
                      <children>
-                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0" text="HOME">
+                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0">
                            <font>
                               <Font name="Ebrima" size="21.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0" text="PROFILE">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0">
                            <font>
                               <Font name="Ebrima" size="21.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="101.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/profile.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0" text="SETTINGS">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0">
                            <font>
                               <Font name="Ebrima" size="21.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="110.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0" text="LOG OUT">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0">
                            <font>
                               <Font name="Ebrima" size="21.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
-                     <padding>
-                        <Insets left="5.0" top="70.0" />
-                     </padding>
                   </VBox>
               </items>
                <padding>
-                  <Insets left="30.0" top="30.0" />
+                  <Insets left="30.0" top="50.0" />
                </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </ToolBar>
          </children>
       </AnchorPane>
-      <VBox prefHeight="650.0" prefWidth="898.0" spacing="5.0">
+      <VBox prefHeight="650.0" prefWidth="840.0">
          <children>
-            <AnchorPane prefHeight="150.0" prefWidth="510.0">
+            <AnchorPane prefHeight="150.0" prefWidth="813.0">
                <children>
-                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="168.0" layoutY="61.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label fx:id="level" layoutX="170.0" layoutY="56.0" text="Level" textFill="WHITE">
+                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="99.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="53.0" text="Level" textFill="WHITE">
                      <font>
-                        <Font size="28.0" />
+                        <Font size="27.0" />
                      </font>
-                  </Label><ProgressBar layoutX="343.0" layoutY="64.0" prefHeight="23.0" prefWidth="466.0" progress="0.0" />
-                  <Label layoutX="343.0" layoutY="100.0" text="Progress Bar">
+                  </Label>
+                  <Label fx:id="username" layoutX="278.0" layoutY="25.0" text="Username">
                      <font>
-                        <Font name="Ebrima" size="22.0" />
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar layoutX="278.0" layoutY="80.0" prefHeight="23.0" prefWidth="479.0" progress="0.0" />
+                  <Label layoutX="278.0" layoutY="107.0" text="Progress Bar">
+                     <font>
+                        <Font size="22.0" />
                      </font>
                   </Label>
                </children>

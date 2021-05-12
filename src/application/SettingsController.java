@@ -1,12 +1,30 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import org.bson.Document;
+
+import com.mongodb.client.model.Filters;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
-public class SettingsController {
+public class SettingsController implements Initializable{
+	
+	@FXML
+	private Label level;
+	
+	@FXML
+	private Label username;
 	
 	@FXML
 	private TextField newUsername;
@@ -48,5 +66,11 @@ public class SettingsController {
 	protected void deleteAccount() throws IOException {
 		EditUser.deleteAccount();
 		FXRouter.goTo("login");
+	}
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		username.setText(Auth.currentUser.getUsername());
+		level.setText(String.valueOf(Auth.currentUser.getUserLevel()));
 	}
 }

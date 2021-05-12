@@ -15,55 +15,85 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="650.0" prefWidth="1025.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="650.0" prefWidth="1040.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="125.0">
+      <AnchorPane prefHeight="400.0" prefWidth="130.0">
          <children>
-            <ToolBar orientation="VERTICAL" prefHeight="656.0" prefWidth="185.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar orientation="VERTICAL" prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #FFE4B5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="0.0">
               <items>
-                  <VBox spacing="40.0">
+                  <VBox prefHeight="401.0" prefWidth="150.0" spacing="40.0">
                      <children>
-                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0" text="HOME">
+                      <Button fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="70.0" prefWidth="123.0">
                            <font>
-                              <Font size="21.0" />
-                           </font></Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0" text="PROFILE">
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToProfile" prefHeight="70.0" prefWidth="123.0">
                            <font>
-                              <Font size="21.0" />
-                           </font></Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0" text="SETTINGS">
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="101.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/profile.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="70.0" prefWidth="123.0">
                            <font>
-                              <Font size="21.0" />
-                           </font></Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0" text="LOG OUT">
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="110.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="70.0" prefWidth="123.0">
                            <font>
-                              <Font size="21.0" />
-                           </font></Button>
+                              <Font name="Ebrima" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
                   </VBox>
               </items>
                <padding>
-                  <Insets left="30.0" top="100.0" />
+                  <Insets left="30.0" top="60.0" />
                </padding>
             </ToolBar>
          </children>
       </AnchorPane>
-      <VBox prefHeight="650.0" prefWidth="840.0">
+      <VBox fillWidth="false" prefHeight="548.0" prefWidth="889.0">
          <children>
             <AnchorPane prefHeight="150.0" prefWidth="495.0">
                <children>
                   <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="99.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="55.0" text="Level" textFill="WHITE">
+                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="53.0" text="Level" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Label>
                   <Label fx:id="username" layoutX="278.0" layoutY="25.0" text="Username">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="daysOnApp" layoutX="557.0" layoutY="25.0" text="# Days on app">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -78,7 +108,7 @@
             </AnchorPane>
             <ScrollPane prefHeight="508.0" prefWidth="819.0">
                <content>
-                  <TilePane prefHeight="800.0" prefWidth="889.0" style="-fx-background-color: #FDF5E6;">
+                  <TilePane prefHeight="800.0" prefWidth="861.0" style="-fx-background-color: #FDF5E6;">
                      <children>
                         <VBox alignment="CENTER">
                            <children>
@@ -90,7 +120,8 @@
                               <Label alignment="CENTER" prefWidth="37.0" text="Diet">
                                  <font>
                                     <Font name="Ebrima" size="20.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="diet1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -123,7 +154,8 @@
                               <Label prefWidth="85.0" text="Exercise">
                                  <font>
                                     <Font name="Ebrima" size="20.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="exer1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -156,7 +188,8 @@
                               <Label text="Custom ">
                                  <font>
                                     <Font name="Ebrima" size="20.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </VBox>
                         <ImageView fx:id="custom1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -189,7 +222,8 @@
                               <Label text="Education">
                                  <font>
                                     <Font name="Ebrima" size="20.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                            <TilePane.margin>
                               <Insets top="-25.0" />
@@ -219,7 +253,7 @@
                   </TilePane>
                </content>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="70.0" />
                </VBox.margin>
             </ScrollPane>
          </children>
