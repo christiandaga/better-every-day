@@ -126,22 +126,22 @@
                                  </font></Label>
                            </children>
                         </VBox>
-                        <ImageView fx:id="custom1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="custom2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="custom3" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer3" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="custom4" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exer4" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
@@ -159,22 +159,22 @@
                                  </font></Label>
                            </children>
                         </VBox>
-                        <ImageView fx:id="exer1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom1" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="exer2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom2" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="exer3" fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom3" fitHeight="100.0" fitWidth="150.0" layoutX="332.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="exer4" fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="custom4" fitHeight="100.0" fitWidth="150.0" layoutX="482.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/badge.png" />
                            </image>

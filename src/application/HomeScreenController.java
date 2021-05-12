@@ -2,7 +2,11 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.bson.Document;
@@ -10,6 +14,7 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -83,11 +88,43 @@ public class HomeScreenController implements Initializable {
 		FXRouter.goTo("login");
 	}
 
+	private String beautifyTime(Date dat) {
+		int hour = dat.getHours();
+		String minutes = String.valueOf(dat.getMinutes());
+		if (hour >= 12) {
+			hour -= 12;
+			if (hour == 0) hour += 12;
+			return String.valueOf(hour) + ":" + minutes + "pm";
+		}
+		if (hour == 0) hour += 12;
+		return String.valueOf(hour) + minutes + "am";
+	}
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		// welcomeLabel.setText("Welcome " + Auth.currentUser.getUsername() + " !");
 		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
-		habitList.getItems().addAll(habitDocs.stream().map((Document habit) -> habit.getString("name")).toArray());
+		
+		ArrayList<String> itemList = new ArrayList<String>();
+		Date date = new Date();
+		List<Document> reminderDocs = Db.db.findMany("reminders", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("day", date.getDay())));
+		HashMap<String, Date> reminderMap = new HashMap<String, Date>();
+		for (Document reminder : reminderDocs) {
+			if (!reminderMap.containsKey(reminder.getString("name"))) {
+				Date remindDate = new Date();
+				remindDate.setHours(reminder.getInteger("hour"));
+				remindDate.setMinutes(reminder.getInteger("minute"));
+				reminderMap.put(reminder.getString("name"), remindDate);
+			}
+		}
+		reminderMap.forEach((String name, Date dat) -> {
+			itemList.add(name + "  today at " + beautifyTime(dat));
+		});
+		habitDocs.forEach((Document habit) -> {
+			if (!reminderMap.containsKey(habit.getString("name")))
+				itemList.add(habit.getString("name"));
+		});
+		habitList.getItems().addAll(itemList);
 	}
 }
