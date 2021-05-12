@@ -125,7 +125,7 @@ public class HomeScreenController implements Initializable {
 			return String.valueOf(hour) + ":" + minutes + "pm";
 		}
 		if (hour == 0) hour += 12;
-		return String.valueOf(hour) + minutes + "am";
+		return String.valueOf(hour) + ":" + minutes + "am";
 	}
 	
 	private void renderItemList() {

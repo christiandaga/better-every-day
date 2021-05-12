@@ -26,12 +26,11 @@ public final class Auth {
 		if (user == null) {
 			currentUser = new User(username, password, email);
 			Db.db.addItemToDB("users", currentUser.getDocument());
-			currentUser.getUsername();
+			RemindersManager.init();
 			return true;
 		}
 		
 		return false;
-			
 	}
 	
 	// Logs out of account.
