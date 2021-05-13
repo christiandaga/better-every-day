@@ -1,7 +1,6 @@
 package application;
 
-import org.bson.Document;
-import java.util.ArrayList; 
+import org.bson.Document; 
 
 public class User {
 

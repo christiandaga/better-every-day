@@ -2,7 +2,7 @@ package application;
 import org.bson.Document; 
 
 
-public class Schedule {
+public class Schedule__ {
 	
 	String 	dayofWeek;
 	String 	startTime;
@@ -14,7 +14,7 @@ public class Schedule {
 		
 	}*/
 	
-	public Schedule(String dayofWeek, String startTime, int duration ) { 
+	public Schedule__(String dayofWeek, String startTime, int duration ) { 
 		
 		this.dayofWeek = dayofWeek;
 		this.startTime = startTime;
@@ -22,7 +22,7 @@ public class Schedule {
 		
 	}
 	
-	public Schedule(Document schedule) {
+	public Schedule__(Document schedule) {
 		dayofWeek = schedule.getString("dayofWeek");
 		startTime = schedule.getString("startTime");
 		duration = schedule.getInteger("duration");

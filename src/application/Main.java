@@ -33,7 +33,6 @@ public class Main extends Application {
 		FXRouter.when("profile", "ProfileScreen.fxml", new ProfileController(), LargeWidth, LargeHeight);
 		FXRouter.when("settings", "Settings.fxml", new SettingsController(), LargeWidth, LargeHeight);
 		FXRouter.when("createHabit", "CreateHabit.fxml", new CreateHabitController(), SmallWidth, SmallHeight);
-		FXRouter.when("editHabit", "EditHabit.fxml", new EditHabitController(), SmallWidth, SmallHeight);
 		
 		Platform.setImplicitExit(false);
 		
