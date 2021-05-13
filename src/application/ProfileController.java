@@ -14,19 +14,21 @@ import com.mongodb.client.model.Filters;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ProfileController implements Initializable {
-	
 	@FXML
-	private Label level;
-	
+	private Label level; 
 	@FXML
 	private Label username;
-	
 	@FXML
-	private Label daysOnApp;
+	private Label daysOnApp;	
+	@FXML
+	private ProgressBar pBar;
+	@FXML
+	private Label numAchieved;
 	
 	@FXML
 	private ImageView diet1;
@@ -36,6 +38,7 @@ public class ProfileController implements Initializable {
 	private ImageView diet3;
 	@FXML
 	private ImageView diet4;
+	
 	@FXML
 	private ImageView custom1;
 	@FXML
@@ -44,6 +47,7 @@ public class ProfileController implements Initializable {
 	private ImageView custom3;
 	@FXML
 	private ImageView custom4;
+	
 	@FXML
 	private ImageView exer1;
 	@FXML
@@ -52,6 +56,7 @@ public class ProfileController implements Initializable {
 	private ImageView exer3;
 	@FXML
 	private ImageView exer4;
+	
 	@FXML
 	private ImageView educ1;
 	@FXML
@@ -61,35 +66,45 @@ public class ProfileController implements Initializable {
 	@FXML
 	private ImageView educ4;
 
+	// Navigation bar.
 	@FXML
 	protected void goHome() throws IOException {
 		FXRouter.goTo("home");
 	}
-	
 	@FXML
 	protected void goToProfile() throws IOException {
 		FXRouter.goTo("profile");
 	}
-	
 	@FXML
 	protected void goToSettings() throws IOException {
 		FXRouter.goTo("settings");
 	}
-	
 	// Logs the user out of their account when the Log Out button is clicked.
 	@FXML
 	protected void logOut() throws IOException {
 		Auth.logout();
 		FXRouter.goTo("login");
 	}
-
-	// initializes with username, level, and all the badges
+	
+	// initializes with username, level, progress bar, and graphically all the badges achieved.
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		// Initializes username and level.
 		username.setText(Auth.currentUser.getUsername());
 		level.setText(String.valueOf(Auth.currentUser.getUserLevel()));
+		
 		List<Document> cats = Db.db.findMany("categories", Filters.eq("username", Auth.currentUser.getUsername()));
-
+		
+		// Initializes progress bar.
+		int numAchv = 0;
+		for (Document cat : cats) {
+			Category category = new Category(cat);
+			numAchv += category.getAchievements();
+		}
+		pBar.setProgress((double) numAchv / 16);
+		numAchieved.setText(numAchv + "/16 Badges Achieved");
+		
+		// Initializes all the achievements.
 		try {
 			FileInputStream badgeComplete = new FileInputStream("src/resources/badgeComplete.png");
 			Image badgeCompleteImg = new Image(badgeComplete);
@@ -141,8 +156,5 @@ public class ProfileController implements Initializable {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 }

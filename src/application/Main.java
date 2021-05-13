@@ -32,8 +32,8 @@ public class Main extends Application {
 		FXRouter.when("register", "CreateAccountScreen.fxml", new CreateAccountController(), LargeWidth, LargeHeight);
 		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController(), LargeWidth, LargeHeight);
 		FXRouter.when("profile", "ProfileScreen.fxml", new ProfileController(), LargeWidth, LargeHeight);
-		FXRouter.when("settings", "Settings.fxml", new SettingsController(), LargeWidth, LargeHeight);
-		FXRouter.when("createHabit", "CreateHabit.fxml", new CreateHabitController(), SmallWidth, SmallHeight);
+		FXRouter.when("settings", "SettingsScreen.fxml", new SettingsController(), LargeWidth, LargeHeight);
+		FXRouter.when("createHabit", "CreateHabitScreen.fxml", new CreateHabitController(), SmallWidth, SmallHeight);
 		
 		Platform.setImplicitExit(false);
 		
