@@ -83,6 +83,7 @@ public class ProfileController implements Initializable {
 		FXRouter.goTo("login");
 	}
 
+	// initializes with username, level, and all the badges
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		username.setText(Auth.currentUser.getUsername());

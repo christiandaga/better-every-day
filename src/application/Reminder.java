@@ -45,6 +45,7 @@ public class Reminder extends TimerTask {
 		createPopup();
 	}
 	
+	// The javafx popup shown at time of reminder
 	private void createPopup() {
 		shown = false;
 		
@@ -84,6 +85,7 @@ public class Reminder extends TimerTask {
 				.append("minute", minute);
 	}
 	
+	// runs every 10 seconds and checks if the current time = time on reminder then shows popup
 	@Override
 	public void run() {
 		date = new Date();

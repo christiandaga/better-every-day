@@ -6,6 +6,7 @@ import com.mongodb.client.model.Filters;
 
 public final class Auth {
 
+	// user currently logged in
 	public static User currentUser;
 	
 	// Logs in user given that username and password are correct.

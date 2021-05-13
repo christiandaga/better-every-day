@@ -56,6 +56,7 @@ public class CreateHabitController implements Initializable {
 		FXRouter.goTo("login");
 	}
 	
+	// Changes ui when selecting category
 	@FXML
 	protected void slctDiet() {
 		categoryLbl.setText("Diet");
@@ -86,6 +87,7 @@ public class CreateHabitController implements Initializable {
 		}
 	}
 	
+	// changes ui when selecting day
 	@FXML
 	protected void m() { 
 		selectDay(1); 
@@ -129,6 +131,7 @@ public class CreateHabitController implements Initializable {
 		return newText;
 	}
 	
+	// changes ui when changing time
 	@FXML
 	protected void hourUp() {
 		int newHour = getHour() + 1;
@@ -180,7 +183,7 @@ public class CreateHabitController implements Initializable {
 		return Integer.parseInt(minuteText.getText());
 	}
 	
-	// Adds habit to user's list of habits.
+	// Adds habit and reminder to db and goes home.
 	@FXML
 	protected void createHabit() throws IOException {
 		Habit habit = new Habit(name.getText(), 1, catSelected);  // 1 point for each habit

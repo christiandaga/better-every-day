@@ -48,6 +48,7 @@ public class HomeScreenController implements Initializable {
 		FXRouter.goTo("createHabit");
 	}
 	
+	// marks habit done and increments level and daysCompleted
 	@FXML
 	protected void markDone() throws IOException {
 		System.out.println(" In markDone");
@@ -70,6 +71,7 @@ public class HomeScreenController implements Initializable {
 		}
 	}
 	
+	// deletes habit and corresponding reminders
 	@FXML
 	protected void deleteHabit() throws IOException {
 		System.out.println(" In deleteHabit");
@@ -91,16 +93,6 @@ public class HomeScreenController implements Initializable {
 		renderItemList();
 	}
 	
-	@FXML
-	protected void editHabit() throws IOException {
-		System.out.println("In editHabit");
-		String selectedHabit = " ";
-		
-		// Check if a habit from the list has been selected
-		selectedHabit = getSelectedHabit();
-
-		FXRouter.goTo("editHabit", selectedHabit);
-	}
 	
 	// Logs the user out of their account when the Log Out button is clicked.
 	@FXML
@@ -119,6 +111,7 @@ public class HomeScreenController implements Initializable {
 	private String beautifyTime(Date dat) {
 		int hour = dat.getHours();
 		String minutes = String.valueOf(dat.getMinutes());
+		if (minutes.length() == 1) minutes = "0" + minutes;
 		if (hour >= 12) {
 			hour -= 12;
 			if (hour == 0) hour += 12;
@@ -128,6 +121,7 @@ public class HomeScreenController implements Initializable {
 		return String.valueOf(hour) + ":" + minutes + "am";
 	}
 	
+	// renders a list of habits, todays habits at the top
 	private void renderItemList() {
 		List<Document> habitDocs = Db.db.findMany("habits", Filters.eq("username", Auth.currentUser.getUsername()));
 		
@@ -155,8 +149,6 @@ public class HomeScreenController implements Initializable {
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
-		// welcomeLabel.setText("Welcome " + Auth.currentUser.getUsername() + " !");
 		renderItemList();
 	}
 }

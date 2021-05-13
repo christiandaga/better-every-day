@@ -26,7 +26,8 @@ public class Main extends Application {
 			}
 		});
 		
-		FXRouter.bind(this, primaryStage, new DefaultController(), "Better Every Day");
+		// loads routes
+		FXRouter.bind(this, primaryStage, "Better Every Day");
 		FXRouter.when("login", "LoginScreen.fxml", new LoginScreenController(), LargeWidth, LargeHeight);
 		FXRouter.when("register", "CreateAccountScreen.fxml", new CreateAccountController(), LargeWidth, LargeHeight);
 		FXRouter.when("home", "HomeScreen.fxml", new HomeScreenController(), LargeWidth, LargeHeight);

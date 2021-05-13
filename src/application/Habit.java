@@ -66,6 +66,7 @@ public class Habit {
 		return daysCompleted;
 	}
 	
+	// increments daysCompleted and updates database
 	public void completeDay() {
 		daysCompleted++;
 		Db.db.updateItem("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", name)), Updates.inc("daysCompleted", 1));
