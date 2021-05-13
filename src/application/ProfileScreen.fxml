@@ -87,19 +87,24 @@
          <children>
             <AnchorPane prefHeight="150.0" prefWidth="495.0">
                <children>
-                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="99.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="53.0" text="Level" textFill="WHITE">
+                  <Circle centerX="15.0" centerY="15.0" fill="#7c93a8" layoutX="132.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="level" alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="45.0" text="Level" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <Label fx:id="username" layoutX="278.0" layoutY="25.0" text="Username">
+                  <Label fx:id="username" layoutX="238.0" layoutY="18.0" text="Username">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <ProgressBar layoutX="278.0" layoutY="80.0" prefHeight="23.0" prefWidth="479.0" progress="0.0" />
-                  <Label layoutX="278.0" layoutY="107.0" text="Progress Bar">
+                  <ProgressBar fx:id="pBar" layoutX="238.0" layoutY="73.0" prefHeight="23.0" prefWidth="479.0" progress="0.0" />
+                  <Label fx:id="numAchieved" layoutX="624.0" layoutY="100.0" text="0/16 Badges Achieved">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numAchieved1" layoutX="238.0" layoutY="100.0" text="Progress">
                      <font>
                         <Font size="22.0" />
                      </font>

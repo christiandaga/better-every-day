@@ -30,25 +30,25 @@ public class CreateHabitController implements Initializable {
 	private MenuButton categoryLbl;
 	@FXML
 	private Label daySelect;
+	@FXML
+	private MenuButton iconLbl;
 	
+	// Navigation bar
 	// Goes to the Home Screen.
 	@FXML
 	protected void goHome() throws IOException {
 		FXRouter.goTo("home");
 	}
-	
 	// Goes to the Profile Screen.
 	@FXML
 	protected void goToProfile() throws IOException {
 		FXRouter.goTo("profile");
 	}
-	
 	// Goes to the Settings Screen.
 	@FXML
 	protected void goToSettings() throws IOException {
 		FXRouter.goTo("settings");
 	}
-	
 	// Logs the user out of their account and goes back to the Login Screen.
 	@FXML
 	protected void logout() throws IOException {
@@ -56,7 +56,19 @@ public class CreateHabitController implements Initializable {
 		FXRouter.goTo("login");
 	}
 	
-	// Changes ui when selecting category
+	
+	// Changes ui when selecting icon.
+	@FXML
+	protected void slctDietIcon() { iconLbl.setText("Diet");}
+	@FXML
+	protected void slctEducationIcon() { iconLbl.setText("Education");}
+	@FXML
+	protected void slctExerciseIcon() { iconLbl.setText("Exercise");}
+	@FXML
+	protected void slctCustomIcon() { iconLbl.setText("Custom");}
+	
+	
+	// Changes ui when selecting category.
 	@FXML
 	protected void slctDiet() {
 		categoryLbl.setText("Diet");
@@ -93,7 +105,6 @@ public class CreateHabitController implements Initializable {
 		selectDay(1); 
 		daySelect.setText("Day selected: Monday");
 	}
-	
 	@FXML
 	protected void t() { 
 		selectDay(2); 

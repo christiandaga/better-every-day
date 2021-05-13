@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
@@ -31,7 +30,7 @@
                               <Font name="Ebrima" size="21.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="goHome" fitHeight="150.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../resources/home.png" />
                                  </image>
@@ -96,12 +95,14 @@
          <children>
             <AnchorPane prefHeight="75.0" prefWidth="785.0">
                <children>
-                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="135.0" layoutY="16.0" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="300.0" text="Welcome!">
+                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="136.0" layoutY="16.0" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="300.0" text="Welcome!">
                      <font>
                         <Font name="Ebrima" size="32.0" />
                      </font>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
                   </Label>
-                  <ProgressBar layoutX="500.0" layoutY="24.0" prefHeight="30.0" prefWidth="245.0" progress="0.0" />
                   <Separator layoutX="-55.0" layoutY="70.0" prefHeight="23.0" prefWidth="800.0" />
                </children>
                <VBox.margin>
@@ -113,7 +114,7 @@
                   <Insets bottom="25.0" left="50.0" top="25.0" />
                </VBox.margin>
             </ListView>
-            <HBox alignment="CENTER" prefHeight="91.0" prefWidth="978.0" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="91.0" prefWidth="978.0" spacing="80.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#createHabit" prefHeight="51.0" prefWidth="213.0" text="Create New Habit">
                      <font>
@@ -123,10 +124,13 @@
                   <Button mnemonicParsing="false" onAction="#deleteHabit" prefHeight="51.0" prefWidth="162.0" text="Delete Habit">
                      <font>
                         <Font size="19.0" />
-                     </font></Button>
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Button>
                   <Button mnemonicParsing="false" onAction="#markDone" prefHeight="51.0" prefWidth="178.0" text="Mark Done!">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </HBox.margin>
                      <font>
                         <Font size="19.0" />

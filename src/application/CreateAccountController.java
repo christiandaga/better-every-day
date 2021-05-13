@@ -52,6 +52,7 @@ public class CreateAccountController {
 		}
 	}
 	
+	// When the Go Back button is clicked, the user returns to Login screen.
 	@FXML
 	protected void goBack(ActionEvent event) throws IOException {
 		FXRouter.goTo("login");
