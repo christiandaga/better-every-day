@@ -26,6 +26,9 @@ public class EditUser {
 				return false;
 			} else {
 				Db.db.updateItem("users", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("username", username));
+				Db.db.updateItems("habits", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("username", username));
+				Db.db.updateItems("reminders", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("username", username));
+				Db.db.updateItems("categories", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("username", username));
 				Auth.currentUser.setUsername(username);
 			}
 			
@@ -36,5 +39,8 @@ public class EditUser {
 	// Deletes user account.
 	public static void deleteAccount() {
 		Db.db.deleteItem("users", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("password", Auth.currentUser.getPassword()), Filters.eq("email", Auth.currentUser.getEmail())));
+		Db.db.deleteItems("habits", Filters.eq("username", Auth.currentUser.getUsername()));
+		Db.db.deleteItems("reminders", Filters.eq("username", Auth.currentUser.getUsername()));
+		Db.db.deleteItems("categories", Filters.eq("username", Auth.currentUser.getUsername()));
 	}
 }

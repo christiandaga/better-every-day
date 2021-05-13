@@ -60,11 +60,13 @@ public class SettingsController implements Initializable{
 	@FXML
 	protected void editProfile(ActionEvent event) throws IOException {
 		EditUser.editProfile(newUsername.getText(), newEmail.getText(), newPassword.getText());
+		FXRouter.goTo("settings");
 	}
 
 	@FXML
 	protected void deleteAccount() throws IOException {
 		EditUser.deleteAccount();
+		Auth.logout();
 		FXRouter.goTo("login");
 	}
 	

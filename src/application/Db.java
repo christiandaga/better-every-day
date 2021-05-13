@@ -118,6 +118,19 @@ final class Db {
 	}
 	
 	/**
+	 * Finds and deletes many items
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 */
+	public void deleteItems(String collectionName, Bson filter) {
+		try {
+			database.getCollection(collectionName).deleteMany(filter);
+		} catch(Exception e) {
+			System.out.println("Failed to delete items");
+		}
+	}
+	
+	/**
 	 * Finds and updates an item
 	 * @param collectionName the name of the collection
 	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
@@ -128,6 +141,20 @@ final class Db {
 			database.getCollection(collectionName).updateOne(filter, update);
 		} catch(Exception e) {
 			System.out.println("Failed to update item");
+		}
+	}
+	
+	/**
+	 * Finds and updates many items
+	 * @param collectionName the name of the collection
+	 * @param filter the Bson filter ex: Filters.eq("username", "bob")
+	 * @param update the Bson update ex: Updates.set("username", "Bob")
+	 */
+	public void updateItems(String collectionName, Bson filter, Bson update) {
+		try {
+			database.getCollection(collectionName).updateMany(filter, update);
+		} catch(Exception e) {
+			System.out.println("Failed to update items");
 		}
 	}
 }
