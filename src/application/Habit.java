@@ -10,9 +10,6 @@ public class Habit {
 	private String name; // Name of the habit. 
 	private int level; // Level of the habit.
 	private int points; // Points gained by doing the habit.
-	// private int pointsEarned; // each time a schedule is met, increase by points
-	// private ArrayList<Schedule> schedule = new ArrayList<Schedule>(); 
-	// private Schedule[] schedule;
 	private int daysCompleted;
 	private String categoryName;
 	
@@ -71,7 +68,6 @@ public class Habit {
 	
 	public void completeDay() {
 		daysCompleted++;
-		// idk if its best to do it here
 		Db.db.updateItem("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", name)), Updates.inc("daysCompleted", 1));
 		if (daysCompleted % 5 == 0)
 			Db.db.updateItem("categories", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", categoryName)), Updates.inc("achievements", 1));
@@ -89,22 +85,5 @@ public class Habit {
 				.append("daysCompleted", daysCompleted)
 				.append("categoryName", categoryName);
 	}
-	
-//	public void addSchedule(String day, String startTime, int duration ) { 
-//		Schedule x = new Schedule(day, startTime, duration);
-//		schedule.add(x);
-//	}
-//	
-//	public void dropSchedule(Schedule i) { 
-//		schedule.remove(i);
-//	}
-//	
-//	public void viewSchedules() { 
-//		for (int i = 0; i < schedule.size(); i++) { 
-//			System.out.println("DAY: " + schedule.get(i).getDayofWeek());
-//			System.out.print(" START: " + schedule.get(i).getStartTime());
-//			System.out.print(" DAY: " + schedule.get(i).getDuration());
-//		}
-//	}
 	
 }

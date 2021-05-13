@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.bson.Document;
@@ -14,7 +13,6 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -61,13 +59,15 @@ public class HomeScreenController implements Initializable {
 		int newUserLevel = Auth.currentUser.getUserLevel() + 1;
 		Auth.currentUser.setUserLevel(newUserLevel);
 		
-		// Update the users collection with new level - TBD
-		
+		// Update the users collection with new level
 		Db.db.updateItem("users", Filters.eq("username", Auth.currentUser.getUsername()), Updates.set("userLevel", newUserLevel));
 
-		// temp
-		Habit tempHabit = new Habit(Db.db.findOne("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", selectedHabit))));
-		tempHabit.completeDay();
+		
+		Document habitDoc = Db.db.findOne("habits", Filters.and(Filters.eq("username", Auth.currentUser.getUsername()), Filters.eq("name", selectedHabit)));
+		if (habitDoc != null) {
+			Habit tempHabit = new Habit(habitDoc);
+			tempHabit.completeDay();
+		}
 	}
 	
 	@FXML
@@ -112,7 +112,7 @@ public class HomeScreenController implements Initializable {
 	private String getSelectedHabit() {
 		String selectedHabit = (String) habitList.getSelectionModel().getSelectedItem();
 		if (selectedHabit == null) selectedHabit = "";
-		String[] splitSelected = selectedHabit.split(" ");
+		String[] splitSelected = selectedHabit.split("  ");
 		return splitSelected[0];
 	}
 	

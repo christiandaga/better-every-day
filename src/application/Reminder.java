@@ -97,12 +97,6 @@ public class Reminder extends TimerTask {
 		} else {
 			shown = false;
 		}
-//		try {
-//			Thread.sleep(10000);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-		
 	}
 
 }

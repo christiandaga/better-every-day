@@ -67,7 +67,7 @@ final class Db {
 			Iterable<Document> ret = database.getCollection(collectionName).find(filter);
 			return ret.iterator().next();
 		} catch(Exception e) {
-			System.out.println("Failed to find item");
+			System.out.println("Failed to find item or item is null");
 			return null;
 		}
 	}
@@ -100,7 +100,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).findOneAndReplace(filter, item);
 		} catch(Exception e) {
-			System.out.println("Failed to replace item");
+			System.out.println("Failed to replace item or item is null");
 		}
 	}
 	
@@ -113,7 +113,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).findOneAndDelete(filter);
 		} catch(Exception e) {
-			System.out.println("Failed to delete item");
+			System.out.println("Failed to delete item or item is null");
 		}
 	}
 	
@@ -140,7 +140,7 @@ final class Db {
 		try {
 			database.getCollection(collectionName).updateOne(filter, update);
 		} catch(Exception e) {
-			System.out.println("Failed to update item");
+			System.out.println("Failed to update item or item is null");
 		}
 	}
 	

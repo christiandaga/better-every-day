@@ -43,11 +43,7 @@ public class CreateAccountController {
 		boolean ok = Auth.createUser(username.getText(), password.getText(), email.getText());
 		
 		if (ok) {
-			try {
-				FXRouter.goTo("home");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			FXRouter.goTo("home");
 		}
 		
 		else
