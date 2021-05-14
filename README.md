@@ -1,5 +1,12 @@
 # better-every-day
 
+# Running
+ - Our project is a Maven project and uses MongoDB
+ - The mongodb driver is downloaded through Maven
+ - The warning "WARNING: SLF4J not found on the classpath.  Logging is disabled for the 'org.mongodb.driver' component" is expected as the driver attempts use SLF4J.
+ - "Failed to find item or item is null" is expected when checking if a name or username is taken.
+ - It may ask for permission to access the network as it is needed to connect to the remote database.
+
 # Initializing project Windows
 1. create workspace with java 8(javaSE-1.8)
 2. file > import > git > projects from git (with smart import) > clone uri
